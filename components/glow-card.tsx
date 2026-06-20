@@ -17,7 +17,7 @@ export function GlowCard({
   return (
     <BorderGlow
       animated={animated}
-      backgroundColor="var(--card)"
+      backgroundColor="var(--card) / 0.7"
       borderRadius={borderRadius}
       coneSpread={98}
       edgeSensitivity={77}
