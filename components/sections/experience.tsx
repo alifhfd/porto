@@ -15,6 +15,19 @@ const experiences = [
   },
 ]
 
+const education = [
+  {
+    school: 'Institut Teknologi & Bisnis Dewantara',
+    degree: 'Sarjana Manajemen Bisnis',
+    period: '2021 – 2025',
+  },
+  {
+    school: 'SMK Bina Vokasi Nusantara',
+    degree: 'Mechanical Engineering — Lulusan Terbaik',
+    period: '2019 – 2021',
+  },
+]
+
 export function Experience() {
   return (
     <section id="experience" className="relative px-6 py-28">
@@ -46,6 +59,31 @@ export function Experience() {
             </GlowCard>
           ))}
         </div>
+
+        {/* Education — dipindah dari Certifications */}
+        <div className="mt-14">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Education</p>
+          <h2 className="mt-4 text-4xl font-black tracking-tight">Pendidikan</h2>
+          <div className="mt-8 space-y-4">
+            {education.map((item, i) => (
+              <GlowCard key={item.school} className="p-6">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div className="flex gap-4 items-start">
+                    <span className="text-2xl font-black text-primary/30 leading-none mt-1">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <h3 className="font-bold text-lg">{item.school}</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">{item.degree}</p>
+                    </div>
+                  </div>
+                  <span className="text-sm font-semibold text-primary shrink-0">{item.period}</span>
+                </div>
+              </GlowCard>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   )

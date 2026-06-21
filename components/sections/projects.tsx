@@ -1,5 +1,9 @@
+'use client'
+
 import Image from 'next/image'
+import { useRef } from 'react'
 import { GlowCard } from '@/components/glow-card'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const projects = [
   {
@@ -32,30 +36,70 @@ const projects = [
   },
 ]
 
-export function Projects() {
-  return (
-    <section id="projects" className="relative px-6 py-28">
-      <div className="mx-auto max-w-5xl">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Projects</p>
-        <h2 className="mt-4 text-4xl font-black tracking-tight">Studi Kasus & Project</h2>
-        <p className="mt-4 max-w-2xl text-muted-foreground">
-          Kumpulan project analisis data dan business intelligence yang pernah dikerjakan.
-        </p>
+// Card width = (max-w-5xl - 2 * padding - 2 * gap) / 3
+// max-w-5xl = 64rem = 1024px, px-6 = 24px each side, gap-5 = 20px * 2 gaps
+// (1024 - 48 - 40) / 3 ≈ 312px
+const CARD_W = 'w-[300px] lg:w-[calc((64rem-3rem-2.5rem)/3)]'
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
-            <GlowCard key={project.title} className="overflow-hidden">
-              <div className="relative h-44 w-full">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
+export function Projects() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const scroll = (dir: 'left' | 'right') => {
+    const el = scrollRef.current
+    if (!el) return
+    const cardWidth = el.querySelector('div')?.clientWidth ?? 300
+    el.scrollBy({ left: dir === 'right' ? cardWidth + 20 : -(cardWidth + 20), behavior: 'smooth' })
+  }
+
+  return (
+    <section id="projects" className="relative py-28">
+      {/* Header — constrained */}
+      <div className="mx-auto max-w-5xl px-6">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Projects</p>
+        <div className="mt-4 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-4xl font-black tracking-tight">Studi Kasus & Project</h2>
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              Kumpulan project analisis data dan business intelligence yang pernah dikerjakan.
+            </p>
+          </div>
+          <div className="hidden sm:flex items-center gap-2 shrink-0 pb-1">
+            <button
+              onClick={() => scroll('left')}
+              className="p-2 rounded-full border border-border bg-background/80 hover:bg-accent transition-colors"
+              aria-label="Scroll kiri"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              onClick={() => scroll('right')}
+              className="p-2 rounded-full border border-border bg-background/80 hover:bg-accent transition-colors"
+              aria-label="Scroll kanan"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll track — starts flush with header left edge */}
+      <div
+        ref={scrollRef}
+        className="mt-10 flex gap-5 overflow-x-auto scroll-smooth pb-4
+          snap-x snap-mandatory
+          [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+          pl-6 lg:pl-[max(1.5rem,calc((100vw-64rem)/2+1.5rem))]
+          pr-6"
+      >
+        {projects.map((project) => (
+          <div key={project.title} className={`snap-start shrink-0 ${CARD_W} min-w-[260px]`}>
+            <GlowCard className="h-full overflow-hidden flex flex-col">
+              <div className="relative h-44 w-full shrink-0">
+                <Image src={project.image} alt={project.title} fill className="object-cover" />
               </div>
-              <div className="p-5">
-                <h3 className="font-bold text-lg">{project.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="font-bold text-lg leading-snug">{project.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground flex-1">
                   {project.description}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -70,8 +114,10 @@ export function Projects() {
                 </div>
               </div>
             </GlowCard>
-          ))}
-        </div>
+          </div>
+        ))}
+        {/* trailing space */}
+        <div className="shrink-0 w-6" />
       </div>
     </section>
   )

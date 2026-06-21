@@ -1,4 +1,8 @@
+'use client'
+
+import { useRef } from 'react'
 import { GlowCard } from '@/components/glow-card'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const certifications = [
   {
@@ -27,55 +31,69 @@ const certifications = [
   },
 ]
 
-const education = [
-  {
-    school: 'Institut Teknologi & Bisnis Dewantara',
-    degree: 'Sarjana Manajemen Bisnis',
-    period: '2021 – 2025',
-  },
-  {
-    school: 'SMK Bina Vokasi Nusantara',
-    degree: 'Mechanical Engineering — Lulusan Terbaik',
-    period: '2019 – 2021',
-  },
-]
+const CARD_W = 'w-[300px] lg:w-[calc((64rem-3rem-2.5rem)/3)]'
 
 export function Certifications() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const scroll = (dir: 'left' | 'right') => {
+    const el = scrollRef.current
+    if (!el) return
+    const cardWidth = el.querySelector('div')?.clientWidth ?? 300
+    el.scrollBy({ left: dir === 'right' ? cardWidth + 20 : -(cardWidth + 20), behavior: 'smooth' })
+  }
+
   return (
-    <section id="certifications" className="relative px-6 py-28">
-      <div className="mx-auto max-w-5xl">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Certifications & Education</p>
-        <h2 className="mt-4 text-4xl font-black tracking-tight">Sertifikasi & Pendidikan</h2>
+    <section id="certifications" className="relative py-28">
+      {/* Header — constrained */}
+      <div className="mx-auto max-w-5xl px-6">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Certifications</p>
+        <div className="mt-4 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-4xl font-black tracking-tight">Sertifikasi</h2>
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              Sertifikasi dan penghargaan yang mendukung kompetensi analitik dan operasional.
+            </p>
+          </div>
+          <div className="hidden sm:flex items-center gap-2 shrink-0 pb-1">
+            <button
+              onClick={() => scroll('left')}
+              className="p-2 rounded-full border border-border bg-background/80 hover:bg-accent transition-colors"
+              aria-label="Scroll kiri"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              onClick={() => scroll('right')}
+              className="p-2 rounded-full border border-border bg-background/80 hover:bg-accent transition-colors"
+              aria-label="Scroll kanan"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+      </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {certifications.map((cert) => (
-            <GlowCard key={cert.name} className="p-5">
-              <div className="flex items-start justify-between gap-2">
-                <h3 className="font-bold leading-snug">{cert.name}</h3>
-                <span className="shrink-0 text-xs font-semibold text-primary">{cert.year}</span>
-              </div>
-              <p className="mt-1 text-xs text-muted-foreground font-semibold">{cert.issuer}</p>
-              <p className="mt-2 text-sm text-muted-foreground">{cert.desc}</p>
+      {/* Scroll track */}
+      <div
+        ref={scrollRef}
+        className="mt-10 flex gap-5 overflow-x-auto scroll-smooth pb-4
+          snap-x snap-mandatory
+          [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+          pl-6 lg:pl-[max(1.5rem,calc((100vw-64rem)/2+1.5rem))]
+          pr-6"
+      >
+        {certifications.map((cert) => (
+          <div key={cert.name} className={`snap-start shrink-0 ${CARD_W} min-w-[260px]`}>
+            <GlowCard className="h-full p-6 flex flex-col">
+              <span className="text-4xl font-black text-primary/20 leading-none">{cert.year}</span>
+              <h3 className="mt-4 font-bold text-lg leading-snug">{cert.name}</h3>
+              <p className="mt-1 text-xs font-semibold text-primary">{cert.issuer}</p>
+              <p className="mt-3 text-sm text-muted-foreground flex-1">{cert.desc}</p>
             </GlowCard>
-          ))}
-        </div>
-
-        <div className="mt-10">
-          <GlowCard className="p-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-5">Education</p>
-            <div className="space-y-5">
-              {education.map((item) => (
-                <div key={item.school} className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
-                  <div>
-                    <h3 className="font-bold">{item.school}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{item.degree}</p>
-                  </div>
-                  <span className="text-sm font-semibold text-primary shrink-0">{item.period}</span>
-                </div>
-              ))}
-            </div>
-          </GlowCard>
-        </div>
+          </div>
+        ))}
+        <div className="shrink-0 w-6" />
       </div>
     </section>
   )
