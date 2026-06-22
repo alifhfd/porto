@@ -14,12 +14,12 @@ export function About() {
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">About</p>
         <div className="mt-4 grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-start">
           <div>
-            <h2 className="text-4xl font-black tracking-tight">Tentang Alief Hafid Sidiq</h2>
+            <h2 className="text-4xl font-black tracking-tight">Tentang Saya</h2>
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-              Lulusan Manajemen Bisnis dengan ketertarikan kuat pada analisis data, visualisasi,
-              business intelligence, dan optimasi proses bisnis. Terbiasa bekerja dengan data
-              operasional, SAP ERP, rekonsiliasi inventori, serta standar mutu produksi, dengan
-              komitmen untuk terus mengembangkan kemampuan analisis agar menghasilkan insight
+              saya adalah Lulusan Baru dari Studi Manajemen Bisnis dengan ketertarikan kuat pada analisis data dan visualisasi,
+              manajemen bisnis, dan supply chain management. Terbiasa bekerja dengan tim, dan melakukan improvisasi atau 
+              evaluasi kerja sesuai dengan observasi lingkungan kerja, teknis operasional produksi, meenggunakan SAP ERP sebagai aggregator,
+              rekonsiliasi inventori, berkomitmen untuk terus mengembangkan kemampuan analisis agar menghasilkan insight
               yang bernilai bagi perusahaan.
             </p>
           </div>
@@ -41,7 +41,7 @@ export function About() {
               </div>
               <div>
                 <dt className="font-semibold text-foreground">Username</dt>
-                <dd className="mt-1 text-muted-foreground">Haali</dd>
+                <dd className="mt-1 text-muted-foreground">alifhfd_</dd>
               </div>
             </dl>
           </GlowCard>

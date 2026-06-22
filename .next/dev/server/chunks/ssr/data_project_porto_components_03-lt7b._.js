@@ -13,7 +13,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$nod
 ;
 ;
 ;
-function ThemeProvider({ children }) {
+function ThemeProvider({ children, ...props }) {
     const [mounted, setMounted] = __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"](false);
     __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"](()=>{
         setMounted(true);
@@ -24,16 +24,11 @@ function ThemeProvider({ children }) {
         }, void 0, false);
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2d$themes$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ThemeProvider"], {
-        attribute: [
-            "class"
-        ],
-        defaultTheme: "dark",
-        enableSystem: true,
-        disableTransitionOnChange: true,
+        ...props,
         children: children
     }, void 0, false, {
         fileName: "[project]/data_project/porto/components/theme-provider.tsx",
-        lineNumber: 18,
+        lineNumber: 20,
         columnNumber: 5
     }, this);
 }

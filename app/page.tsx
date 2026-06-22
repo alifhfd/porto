@@ -1,4 +1,3 @@
-import { ThemeProvider } from '@/components/theme-provider'
 import { StarBackground } from '@/components/star-background'
 import { Navbar } from '@/components/navbar'
 import { Hero } from '@/components/sections/hero'
@@ -12,7 +11,7 @@ import { Footer } from '@/components/footer'
 
 export default function Page() {
   return (
-    <ThemeProvider>
+    <>
       <StarBackground />
       <div className="relative z-10">
         <Navbar />
@@ -27,6 +26,6 @@ export default function Page() {
         </main>
         <Footer />
       </div>
-    </ThemeProvider>
+    </>
   )
 }
