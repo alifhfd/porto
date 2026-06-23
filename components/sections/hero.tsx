@@ -6,9 +6,9 @@ import ProfileCard from '@/components/profile-card'
 
 const TITLES = [
   'Data Analyst',
-  'Business Intelligence',
-  'SAP ERP Specialist',
-  'Process Optimizer',
+  'Business Management',
+  'Supply Chain Management',
+  'Data Visualization'
 ]
 
 const stats = [
@@ -17,7 +17,7 @@ const stats = [
   { value: '3+', label: 'Project Selesai' },
 ]
 
-const tools = ['Power BI', 'SQL', 'Python', 'SAP ERP', 'Excel', 'ISO 9001']
+const tools = ['Power BI', 'SQL', 'Python', 'Excel', 'Looker Studio']
 
 export function Hero() {
   const [titleIndex, setTitleIndex] = useState(0)
@@ -69,7 +69,7 @@ export function Hero() {
           {/* Left */}
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-4">
-              👋 Halo, saya
+              🙋‍♂️ Halo, saya
             </p>
             <h1 className="text-5xl sm:text-6xl font-black tracking-tight text-foreground leading-tight">
               Alief Hafid
@@ -83,9 +83,9 @@ export function Hero() {
               </span>
             </div>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Lulusan Manajemen Bisnis dengan ketertarikan kuat pada analisis data,
-              visualisasi, dan optimasi proses bisnis. Terbiasa dengan SAP ERP,
-              rekonsiliasi inventori, dan standar mutu produksi.
+              saya adalah Lulusan Baru dari Studi Manajemen Bisnis dengan ketertarikan kuat pada analisis data,
+              visualisasi, dan optimasi proses bisnis. Terbiasa dengan data, dan visualisasi, supply chain,
+              alur berpikir, dan standar mutu produksi.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-2">
@@ -147,7 +147,8 @@ export function Hero() {
                 enableTilt={true}
                 enableMobileTilt={false}
                 behindGlowEnabled={true}
-                behindGlowColor="rgba(96, 165, 250, 0.5)"
+                behindGlowColor="rgba(96, 1
+                65, 250, 0.5)"
                 innerGradient="linear-gradient(145deg, #1e1b4b8c 0%, #0e7490aa 60%, #06b6d444 100%)"
                 className="!w-full"
                 onContactClick={() => {

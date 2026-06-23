@@ -1,11 +1,26 @@
 import { GlowCard } from '@/components/glow-card'
 
 const focusAreas = [
-  'Data Analysis & Business Intelligence',
-  'SAP ERP Inventory Control',
-  'Quality Management ISO 9001',
-  'Production Efficiency & Material Management',
+  {
+    title: "Data Visualization",
+    points: [
+      "Looker",
+      "Excel Pivot",
+      "Power BI",
+      "Canva",
+    ],
+  },
+  {
+    title: "Data Processing",
+    points: [
+      "Python",
+      "DAX",
+      "Excel",
+      "SQL Query",
+    ],
+  },
 ]
+
 
 export function About() {
   return (
@@ -48,13 +63,32 @@ export function About() {
         </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {focusAreas.map((area) => (
-            <GlowCard key={area} className="min-h-[100px] justify-center p-5">
-              <p className="text-sm font-semibold text-muted-foreground">Fokus</p>
-              <h3 className="mt-2 text-lg font-bold">{area}</h3>
-            </GlowCard>
-          ))}
-        </div>
+  {focusAreas.map((area) => (
+    <GlowCard
+      key={area.title}
+      className="min-h-[140px] p-5"
+    >
+      <p className="text-sm font-semibold text-muted-foreground">
+        Focus Area
+      </p>
+
+      <h3 className="mt-2 text-lg font-bold">
+        {area.title}
+      </h3>
+
+      <div className="mt-4 flex flex-wrap justify-center gap-2">
+        {area.points.map((point) => (
+          <span
+            key={point}
+            className="rounded-full border px-3 py-1 text-xs font-medium"
+          >
+            {point}
+          </span>
+      ))}
+</div>
+    </GlowCard>
+  ))}
+</div>
       </div>
     </section>
   )

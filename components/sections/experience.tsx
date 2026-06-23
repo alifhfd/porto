@@ -5,7 +5,7 @@ const experiences = [
     title: 'Weigher Product — Filling Ampoule & Vial',
     company: 'Darya Varia Laboratoria Tbk',
     period: '2023 – 2025',
-    type: 'Full-time',
+    type: 'Outsourching Contract',
     points: [
       'Mengelola data bahan baku melalui SAP ERP dan melakukan rekonsiliasi stok fisik harian untuk menjaga akurasi inventori.',
       'Memantau performa mesin dan proses produksi dengan pendekatan berbasis data untuk membantu mengurangi downtime.',

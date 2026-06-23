@@ -1316,9 +1316,9 @@ var _s = __turbopack_context__.k.signature();
 ;
 const TITLES = [
     'Data Analyst',
-    'Business Intelligence',
-    'SAP ERP Specialist',
-    'Process Optimizer'
+    'Business Management',
+    'Supply Chain Management',
+    'Data Visualization'
 ];
 const stats = [
     {
@@ -1338,9 +1338,8 @@ const tools = [
     'Power BI',
     'SQL',
     'Python',
-    'SAP ERP',
     'Excel',
-    'ISO 9001'
+    'Looker Studio'
 ];
 function Hero() {
     _s();
@@ -1416,7 +1415,7 @@ function Hero() {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-4",
-                                    children: "👋 Halo, saya"
+                                    children: "🙋‍♂️ Halo, saya"
                                 }, void 0, false, {
                                     fileName: "[project]/data_project/porto/components/sections/hero.tsx",
                                     lineNumber: 71,
@@ -1472,7 +1471,7 @@ function Hero() {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground",
-                                    children: "Lulusan Manajemen Bisnis dengan ketertarikan kuat pada analisis data, visualisasi, dan optimasi proses bisnis. Terbiasa dengan SAP ERP, rekonsiliasi inventori, dan standar mutu produksi."
+                                    children: "saya adalah Lulusan Baru dari Studi Manajemen Bisnis dengan ketertarikan kuat pada analisis data, visualisasi, dan optimasi proses bisnis. Terbiasa dengan data, dan visualisasi, supply chain, alur berpikir, dan standar mutu produksi."
                                 }, void 0, false, {
                                     fileName: "[project]/data_project/porto/components/sections/hero.tsx",
                                     lineNumber: 85,
@@ -1585,7 +1584,7 @@ function Hero() {
                                     enableTilt: true,
                                     enableMobileTilt: false,
                                     behindGlowEnabled: true,
-                                    behindGlowColor: "rgba(96, 165, 250, 0.5)",
+                                    behindGlowColor: "rgba(96, 1 65, 250, 0.5)",
                                     innerGradient: "linear-gradient(145deg, #1e1b4b8c 0%, #0e7490aa 60%, #06b6d444 100%)",
                                     className: "!w-full",
                                     onContactClick: ()=>{

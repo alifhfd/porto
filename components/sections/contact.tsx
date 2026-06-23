@@ -5,7 +5,7 @@ export function Contact() {
     <section id="contact" className="relative px-6 py-28">
       <div className="mx-auto max-w-4xl">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Contact</p>
-        <h2 className="mt-4 text-4xl font-black tracking-tight">Mari Terhubung</h2>
+        <h2 className="mt-4 text-4xl font-black tracking-tight">Hubungi Saya</h2>
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
           Terbuka untuk peluang kerja, kolaborasi data analytics, dan diskusi optimasi proses bisnis.
           Jangan ragu untuk menghubungi saya!

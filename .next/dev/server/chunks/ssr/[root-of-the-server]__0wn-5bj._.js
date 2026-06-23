@@ -161,10 +161,24 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$com
 ;
 ;
 const focusAreas = [
-    'Data Analysis & Business Intelligence',
-    'SAP ERP Inventory Control',
-    'Quality Management ISO 9001',
-    'Production Efficiency & Material Management'
+    {
+        title: "Data Visualization",
+        points: [
+            "Looker",
+            "Excel Pivot",
+            "Power BI",
+            "Canva"
+        ]
+    },
+    {
+        title: "Data Processing",
+        points: [
+            "Python",
+            "DAX",
+            "Excel",
+            "SQL Query"
+        ]
+    }
 ];
 function About() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -178,7 +192,7 @@ function About() {
                     children: "About"
                 }, void 0, false, {
                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                    lineNumber: 14,
+                    lineNumber: 29,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -191,7 +205,7 @@ function About() {
                                     children: "Tentang Saya"
                                 }, void 0, false, {
                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                    lineNumber: 17,
+                                    lineNumber: 32,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -199,13 +213,13 @@ function About() {
                                     children: "saya adalah Lulusan Baru dari Studi Manajemen Bisnis dengan ketertarikan kuat pada analisis data dan visualisasi, manajemen bisnis, dan supply chain management. Terbiasa bekerja dengan tim, dan melakukan improvisasi atau evaluasi kerja sesuai dengan observasi lingkungan kerja, teknis operasional produksi, meenggunakan SAP ERP sebagai aggregator, rekonsiliasi inventori, berkomitmen untuk terus mengembangkan kemampuan analisis agar menghasilkan insight yang bernilai bagi perusahaan."
                                 }, void 0, false, {
                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                    lineNumber: 18,
+                                    lineNumber: 33,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                            lineNumber: 16,
+                            lineNumber: 31,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$components$2f$glow$2d$card$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["GlowCard"], {
@@ -216,7 +230,7 @@ function About() {
                                     children: "Profil Singkat"
                                 }, void 0, false, {
                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                    lineNumber: 28,
+                                    lineNumber: 43,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("dl", {
@@ -229,7 +243,7 @@ function About() {
                                                     children: "Lokasi"
                                                 }, void 0, false, {
                                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                                    lineNumber: 31,
+                                                    lineNumber: 46,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("dd", {
@@ -237,13 +251,13 @@ function About() {
                                                     children: "Citeureup, Kabupaten Bogor"
                                                 }, void 0, false, {
                                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                                    lineNumber: 32,
+                                                    lineNumber: 47,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                            lineNumber: 30,
+                                            lineNumber: 45,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -253,7 +267,7 @@ function About() {
                                                     children: "Email"
                                                 }, void 0, false, {
                                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                                    lineNumber: 35,
+                                                    lineNumber: 50,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("dd", {
@@ -261,13 +275,13 @@ function About() {
                                                     children: "haalief15@gmail.com"
                                                 }, void 0, false, {
                                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                                    lineNumber: 36,
+                                                    lineNumber: 51,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                            lineNumber: 34,
+                                            lineNumber: 49,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -277,7 +291,7 @@ function About() {
                                                     children: "WhatsApp"
                                                 }, void 0, false, {
                                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                                    lineNumber: 39,
+                                                    lineNumber: 54,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("dd", {
@@ -285,13 +299,13 @@ function About() {
                                                     children: "+62 857-1652-3634"
                                                 }, void 0, false, {
                                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                                    lineNumber: 40,
+                                                    lineNumber: 55,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                            lineNumber: 38,
+                                            lineNumber: 53,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -301,7 +315,7 @@ function About() {
                                                     children: "Username"
                                                 }, void 0, false, {
                                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                                    lineNumber: 43,
+                                                    lineNumber: 58,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("dd", {
@@ -309,74 +323,89 @@ function About() {
                                                     children: "alifhfd_"
                                                 }, void 0, false, {
                                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                                    lineNumber: 44,
+                                                    lineNumber: 59,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                            lineNumber: 42,
+                                            lineNumber: 57,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                    lineNumber: 29,
+                                    lineNumber: 44,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                            lineNumber: 27,
+                            lineNumber: 42,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                    lineNumber: 15,
+                    lineNumber: 30,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mt-10 grid gap-4 md:grid-cols-2",
                     children: focusAreas.map((area)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$components$2f$glow$2d$card$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["GlowCard"], {
-                            className: "min-h-[100px] justify-center p-5",
+                            className: "min-h-[140px] p-5",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-sm font-semibold text-muted-foreground",
-                                    children: "Fokus"
+                                    children: "Focus Area"
                                 }, void 0, false, {
                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                    lineNumber: 53,
-                                    columnNumber: 15
+                                    lineNumber: 71,
+                                    columnNumber: 7
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                     className: "mt-2 text-lg font-bold",
-                                    children: area
+                                    children: area.title
                                 }, void 0, false, {
                                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                                    lineNumber: 54,
-                                    columnNumber: 15
+                                    lineNumber: 75,
+                                    columnNumber: 7
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "mt-4 flex flex-wrap justify-center gap-2",
+                                    children: area.points.map((point)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "rounded-full border px-3 py-1 text-xs font-medium",
+                                            children: point
+                                        }, point, false, {
+                                            fileName: "[project]/data_project/porto/components/sections/about.tsx",
+                                            lineNumber: 81,
+                                            columnNumber: 11
+                                        }, this))
+                                }, void 0, false, {
+                                    fileName: "[project]/data_project/porto/components/sections/about.tsx",
+                                    lineNumber: 79,
+                                    columnNumber: 7
                                 }, this)
                             ]
-                        }, area, true, {
+                        }, area.title, true, {
                             fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                            lineNumber: 52,
-                            columnNumber: 13
+                            lineNumber: 67,
+                            columnNumber: 5
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/data_project/porto/components/sections/about.tsx",
-                    lineNumber: 50,
+                    lineNumber: 65,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/data_project/porto/components/sections/about.tsx",
-            lineNumber: 13,
+            lineNumber: 28,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/data_project/porto/components/sections/about.tsx",
-        lineNumber: 12,
+        lineNumber: 27,
         columnNumber: 5
     }, this);
 }
@@ -637,7 +666,7 @@ const experiences = [
         title: 'Weigher Product — Filling Ampoule & Vial',
         company: 'Darya Varia Laboratoria Tbk',
         period: '2023 – 2025',
-        type: 'Full-time',
+        type: 'Outsourching Contract',
         points: [
             'Mengelola data bahan baku melalui SAP ERP dan melakukan rekonsiliasi stok fisik harian untuk menjaga akurasi inventori.',
             'Memantau performa mesin dan proses produksi dengan pendekatan berbasis data untuk membantu mengurangi downtime.',
@@ -959,7 +988,7 @@ function Contact() {
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$data_project$2f$porto$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                     className: "mt-4 text-4xl font-black tracking-tight",
-                    children: "Mari Terhubung"
+                    children: "Hubungi Saya"
                 }, void 0, false, {
                     fileName: "[project]/data_project/porto/components/sections/contact.tsx",
                     lineNumber: 8,
@@ -1136,7 +1165,7 @@ function Footer() {
                     lineNumber: 5,
                     columnNumber: 38
                 }, this),
-                ". Built with Next.js & Tailwind CSS."
+                ". Junior Data Analyst Portofolio."
             ]
         }, void 0, true, {
             fileName: "[project]/data_project/porto/components/footer.tsx",
