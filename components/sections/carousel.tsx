@@ -6,15 +6,11 @@ import Link from "next/link";
 import { projects } from "@/data/projects";
 import { Project } from "@/types/project";
 
-// ─── Accent colors per project (add more as you add projects) ─────────────────
-const ACCENT_COLORS: Record<string, string> = {
-  "superstore-sales-analysis": "#6366f1",
-  "hr-attrition-analysis": "#34d399",
-};
-
-function getAccent(slug: string, index: number): string {
-  const fallbacks = ["#6366f1", "#a78bfa", "#34d399", "#f59e0b", "#ec4899"];
-  return ACCENT_COLORS[slug] ?? fallbacks[index % fallbacks.length];
+// ─── Accent — pakai warna primary (orange) dari tema untuk semua project ──────
+// Jika ingin variasi tipis tiap kartu, gunakan opacity/lightness berbeda dari
+// var(--primary) lewat color-mix, bukan warna lain di luar palette tema.
+function getAccent(): string {
+  return "var(--primary)";
 }
 
 // ─── Individual Card ──────────────────────────────────────────────────────────
@@ -33,7 +29,7 @@ function ProjectCard({
 }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
-  const accent = getAccent(project.slug, index);
+  const accent = getAccent();
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (!cardRef.current) return;
@@ -59,13 +55,13 @@ function ProjectCard({
         scale: isHovered ? 1.03 : 1,
       }}
       transition={{ type: "spring", stiffness: 260, damping: 28 }}
-      className="relative flex-shrink-0 cursor-pointer select-none"
+      className="relative shrink-0 cursor-pointer select-none"
       style={{
         height: 520,
         borderRadius: 24,
         overflow: "hidden",
         boxShadow: isHovered
-          ? `0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.08), 0 0 60px ${accent}22`
+          ? `0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px var(--border), 0 0 60px color-mix(in oklch, var(--primary) 22%, transparent)`
           : "0 16px 40px rgba(0,0,0,0.5)",
       }}
     >
@@ -93,7 +89,7 @@ function ProjectCard({
           <div
             className="w-full h-full"
             style={{
-              background: `linear-gradient(135deg, ${accent}33 0%, #111114 60%)`,
+              background: `linear-gradient(135deg, color-mix(in oklch, var(--primary) 20%, transparent) 0%, var(--background) 60%)`,
               transform: "scale(1.05)",
             }}
           />
@@ -115,7 +111,7 @@ function ProjectCard({
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
         style={{
-          background: `radial-gradient(ellipse at bottom left, ${accent}28 0%, transparent 70%)`,
+          background: `radial-gradient(ellipse at bottom left, color-mix(in oklch, var(--primary) 16%, transparent) 0%, transparent 70%)`,
         }}
       />
 
@@ -424,7 +420,7 @@ export default function ProjectsCarousel() {
       id="projects"
       className="relative w-full overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #0a0a0b 0%, #111114 50%, #0a0a0b 100%)",
+        background: "linear-gradient(180deg, var(--background) 0%, var(--card) 50%, var(--background) 100%)",
         padding: "80px 0 96px",
         minHeight: 720,
       }}
@@ -434,7 +430,7 @@ export default function ProjectsCarousel() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 40% at 50% 100%, rgba(99,102,241,0.06) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 40% at 50% 100%, color-mix(in oklch, var(--primary) 8%, transparent) 0%, transparent 70%)",
         }}
       />
 
@@ -448,22 +444,23 @@ export default function ProjectsCarousel() {
       >
         <p
           className="text-xs font-medium tracking-[0.22em] uppercase mb-3"
-          style={{ color: "#6366f1", fontFamily: "system-ui" }}
+          style={{ color: "var(--primary)", fontFamily: "system-ui" }}
         >
           Selected Work
         </p>
         <h2
-          className="font-semibold text-white"
+          className="font-semibold"
           style={{
             fontSize: "clamp(28px, 4vw, 44px)",
             lineHeight: 1.1,
             fontFamily: "'SF Pro Display', system-ui, sans-serif",
             letterSpacing: "-0.02em",
+            color: "var(--foreground)",
           }}
         >
           Projects that define
           <br />
-          <span style={{ color: "rgba(255,255,255,0.35)" }}>a new standard.</span>
+          <span style={{ color: "var(--muted-foreground)" }}>a new standard.</span>
         </h2>
       </motion.div>
 
@@ -475,11 +472,11 @@ export default function ProjectsCarousel() {
         {/* Edge fade masks */}
         <div
           className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #0a0a0b, transparent)" }}
+          style={{ background: "linear-gradient(to right, var(--background), transparent)" }}
         />
         <div
           className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #0a0a0b, transparent)" }}
+          style={{ background: "linear-gradient(to left, var(--background), transparent)" }}
         />
 
         {/* Scrollable track */}
@@ -530,8 +527,7 @@ export default function ProjectsCarousel() {
         transition={{ delay: 0.8, duration: 0.5 }}
         className="flex justify-center gap-1.5 mt-8"
       >
-        {projects.map((project, i) => {
-          const accent = getAccent(project.slug, i);
+        {projects.map((project) => {
           const isActive = hoveredSlug === project.slug;
           return (
             <div
@@ -540,7 +536,7 @@ export default function ProjectsCarousel() {
               style={{
                 width: isActive ? 20 : 4,
                 height: 4,
-                background: isActive ? accent : "rgba(255,255,255,0.15)",
+                background: isActive ? "var(--primary)" : "rgba(255,255,255,0.15)",
               }}
             />
           );

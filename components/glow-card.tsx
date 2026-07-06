@@ -17,15 +17,15 @@ export function GlowCard({
   return (
     <BorderGlow
       animated={animated}
-      backgroundColor="var(--card) / 0.7"
+      backgroundColor="var(--card)"
       borderRadius={borderRadius}
       coneSpread={98}
       edgeSensitivity={77}
-      fillOpacity={0.16}
-      glowColor="38 75 78"
-      glowIntensity={2}
-      glowRadius={57}
-      colors={["#c084fc", "#f472b6", "#38bdf8"]}
+      fillOpacity={0.12}
+      glowColor="30 80 55"
+      glowIntensity={1.8}
+      glowRadius={50}
+      colors={['#fb923c', '#f97316', '#fdba74']}
       className={`text-card-foreground ${className}`}
     >
       {children}

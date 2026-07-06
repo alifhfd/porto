@@ -56,8 +56,8 @@ export const StarBackground = ({ className = "" }: { className?: string }) => {
       const isDark = resolvedTheme === "dark"
 
       const gradient = ctx.createRadialGradient(width / 2, height, 0, width / 2, height, height)
-      gradient.addColorStop(0, isDark ? "#262626" : "#d4d4d4")
-      gradient.addColorStop(1, isDark ? "#000000" : "#ffffff")
+      gradient.addColorStop(0, isDark ? "#1a1208" : "#f5f0e8")
+      gradient.addColorStop(1, isDark ? "#080503" : "#fdfaf5")
       ctx.fillStyle = gradient
       ctx.fillRect(0, 0, width, height)
 
@@ -90,9 +90,9 @@ export const StarBackground = ({ className = "" }: { className?: string }) => {
 
         ctx.beginPath()
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2)
-        ctx.fillStyle = isDark ? `rgba(255, 255, 255, ${star.opacity})` : `rgba(0, 0, 0, ${star.opacity})`
+        ctx.fillStyle = isDark ? `rgba(255, 220, 180, ${star.opacity})` : `rgba(30, 20, 10, ${star.opacity})`
         ctx.shadowBlur = star.size * 3
-        ctx.shadowColor = isDark ? "rgba(255,255,255,0.8)" : "rgba(0,0,0,0.4)"
+        ctx.shadowColor = isDark ? "rgba(255,160,60,0.6)" : "rgba(30,20,10,0.3)"
         ctx.fill()
       })
 
