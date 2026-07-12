@@ -8,20 +8,19 @@ const LINES = [
   { text: 'alifhfd_',            delay: 1800 },
 ]
 
-const CURSOR_BLINK_END   = 3400   // stop blinking cursor
-const HOLD_DURATION      = 900    // hold after last line fully typed
-const FADE_OUT_START     = CURSOR_BLINK_END + HOLD_DURATION
-const UNMOUNT_DELAY      = FADE_OUT_START + 700  // after CSS fade completes
+const CURSOR_BLINK_END = 3400
+const HOLD_DURATION    = 900
+const FADE_OUT_START   = CURSOR_BLINK_END + HOLD_DURATION
+const UNMOUNT_DELAY    = FADE_OUT_START + 700
 
 interface Props {
   onDone: () => void
 }
 
 export function IntroAnimation({ onDone }: Props) {
-  // Which lines are visible and how many chars
   const [chars, setChars] = useState<number[]>([0, 0, 0])
   const [visibleLines, setVisibleLines] = useState<boolean[]>([false, false, false])
-  const [cursorLine, setCursorLine] = useState(0)     // which line has the cursor
+  const [cursorLine, setCursorLine] = useState(0)
   const [showCursor, setShowCursor] = useState(true)
   const [fadeOut, setFadeOut] = useState(false)
 
@@ -29,12 +28,9 @@ export function IntroAnimation({ onDone }: Props) {
     const timers: ReturnType<typeof setTimeout>[] = []
 
     LINES.forEach((line, li) => {
-      // Show line (slide in)
       timers.push(setTimeout(() => {
         setVisibleLines(prev => { const n = [...prev]; n[li] = true; return n })
         setCursorLine(li)
-
-        // Type each character
         for (let ci = 0; ci <= line.text.length; ci++) {
           timers.push(setTimeout(() => {
             setChars(prev => { const n = [...prev]; n[li] = ci; return n })
@@ -43,13 +39,8 @@ export function IntroAnimation({ onDone }: Props) {
       }, line.delay))
     })
 
-    // Stop cursor blink
     timers.push(setTimeout(() => setShowCursor(false), CURSOR_BLINK_END))
-
-    // Fade out overlay
     timers.push(setTimeout(() => setFadeOut(true), FADE_OUT_START))
-
-    // Unmount
     timers.push(setTimeout(() => onDone(), UNMOUNT_DELAY))
 
     return () => timers.forEach(clearTimeout)
@@ -64,20 +55,16 @@ export function IntroAnimation({ onDone }: Props) {
         pointerEvents: fadeOut ? 'none' : 'all',
       }}
     >
-      {/* subtle radial glow behind text */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            'radial-gradient(ellipse 60% 45% at 50% 50%, oklch(0.62 0.13 200 / 0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 60% 45% at 50% 50%, color-mix(in oklch, var(--primary) 8%, transparent) 0%, transparent 70%)',
         }}
       />
-
       <div className="relative flex flex-col gap-3 px-6">
         {LINES.map((line, li) => {
           const isLast = li === LINES.length - 1
           const isCurrent = li === cursorLine
-
           return (
             <div
               key={li}
@@ -106,7 +93,6 @@ export function IntroAnimation({ onDone }: Props) {
           )
         })}
       </div>
-
       <style>{`
         @keyframes introBlink {
           0%, 100% { opacity: 1; }

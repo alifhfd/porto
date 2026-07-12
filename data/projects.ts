@@ -39,11 +39,6 @@ export const projects: Project[] = [
         ["CA-2016-138688", "2016-06-12", "Second Class", "Corporate", "West", "Office Supplies", "Labels", "$14.62", 2, "0.00", "$6.87"],
         ["US-2015-108966", "2015-10-11", "Standard Class", "Consumer", "South", "Furniture", "Tables", "$957.58", 5, "0.45", "-$383.03"],
         ["US-2015-108966", "2015-10-11", "Standard Class", "Consumer", "South", "Office Supplies", "Storage", "$22.37", 2, "0.20", "$2.52"],
-        ["CA-2014-115812", "2014-06-09", "Standard Class", "Consumer", "West", "Furniture", "Furnishings", "$48.86", 7, "0.00", "$14.17"],
-        ["CA-2014-115812", "2014-06-09", "Standard Class", "Consumer", "West", "Office Supplies", "Art", "$7.28", 4, "0.00", "$1.97"],
-        ["CA-2014-115812", "2014-06-09", "Standard Class", "Consumer", "West", "Technology", "Phones", "$907.15", 6, "0.10", "$90.71"],
-        ["CA-2014-115812", "2014-06-09", "Standard Class", "Consumer", "West", "Office Supplies", "Binders", "$18.50", 3, "0.20", "$5.78"],
-        ["CA-2014-115812", "2014-06-09", "Standard Class", "Consumer", "West", "Office Supplies", "Appliances", "$114.90", 5, "0.00", "$34.47"],
       ],
     },
     timeline: [
@@ -51,25 +46,21 @@ export const projects: Project[] = [
         icon: "Database",
         title: "Data Collection",
         description: "Downloaded the Superstore CSV from Kaggle. Verified row counts, column types, and checked for encoding issues before loading into Python.",
-        image: "/images/projects/superstore/timeline-1.jpg",
       },
       {
         icon: "Wrench",
         title: "Data Cleaning",
         description: "Handled missing values, standardized date formats, removed duplicate order IDs, and validated numeric columns using Pandas.",
-        image: "/images/projects/superstore/timeline-2.jpg",
       },
       {
         icon: "BarChart2",
         title: "Exploratory Analysis",
         description: "Profiled distributions, computed category-level profit margins, and visualized regional trends with Seaborn heatmaps and box plots.",
-        image: "/images/projects/superstore/timeline-3.jpg",
       },
       {
         icon: "Layout",
         title: "Dashboard Build",
-        description: "Designed a 3-page Power BI dashboard: Executive Overview, Category Deep-Dive, and Regional Performance. Applied a consistent color system.",
-        image: "/images/projects/superstore/timeline-4.jpg",
+        description: "Designed a 3-page Power BI dashboard: Executive Overview, Category Deep-Dive, and Regional Performance.",
       },
       {
         icon: "Lightbulb",
@@ -92,7 +83,7 @@ export const projects: Project[] = [
       {
         icon: "MapPin",
         title: "West Region Dominates",
-        description: "The West generates the highest revenue ($725K) and profit ($108K), driven by California's outsized contribution to both metrics.",
+        description: "The West generates the highest revenue ($725K) and profit ($108K), driven by California's outsized contribution.",
       },
       {
         icon: "Percent",
@@ -102,42 +93,38 @@ export const projects: Project[] = [
       {
         icon: "Users",
         title: "Consumer Segment is Core",
-        description: "Consumer segment drives 51% of total sales. However, Corporate customers deliver a higher average order value and better margins.",
+        description: "Consumer segment drives 51% of total sales. However, Corporate customers deliver higher average order value and better margins.",
       },
       {
         icon: "Package",
         title: "Top 10 Products = 18% of Profit",
-        description: "Ten SKUs generate 18% of all profit. Inventory and marketing investment is disproportionately spread across low-performing items.",
+        description: "Ten SKUs generate 18% of all profit. Investment is disproportionately spread across low-performing items.",
       },
     ],
     recommendations: [
       {
         title: "Restructure Discount Policy",
-        description:
-          "Cap maximum discount at 20% across all categories. For Furniture, eliminate discounts entirely until margin recovery is achieved. Implement approval workflows for any order-level exception.",
+        description: "Cap maximum discount at 20% across all categories. For Furniture, eliminate discounts entirely until margin recovery is achieved.",
         icon: "ShieldCheck",
-        accentColor: "#3B82F6",
+        accentColor: "#f97316",
       },
       {
         title: "Double Down on Technology",
-        description:
-          "Increase marketing spend allocation to Technology by 15–20%. Prioritize phone accessories and copier consumables which show the strongest repeat-purchase patterns.",
+        description: "Increase marketing spend allocation to Technology by 15–20%. Prioritize phone accessories and copier consumables.",
         icon: "Zap",
-        accentColor: "#8B5CF6",
+        accentColor: "#fb923c",
       },
       {
         title: "Audit Furniture Suppliers",
-        description:
-          "Renegotiate supplier contracts for Tables and Bookcases. If margin improvement is not achievable within two quarters, consider discontinuing the lowest-performing SKUs.",
+        description: "Renegotiate supplier contracts for Tables and Bookcases. Consider discontinuing lowest-performing SKUs if margin doesn't recover.",
         icon: "ClipboardList",
-        accentColor: "#F59E0B",
+        accentColor: "#fdba74",
       },
       {
         title: "Expand West Region Playbook",
-        description:
-          "Document the sales and logistics practices driving West's outperformance. Pilot the same approach in the Central region, which shows similar demographic potential but lags in conversion.",
+        description: "Document the sales and logistics practices driving West's outperformance. Pilot the same approach in the Central region.",
         icon: "Map",
-        accentColor: "#10B981",
+        accentColor: "#f97316",
       },
     ],
   },
@@ -151,7 +138,6 @@ export const projects: Project[] = [
     coverImage: "/images/projects/hr/cover.jpg",
     galleryImages: [],
     githubUrl: "https://github.com/aliefhafid/hr-attrition",
-    liveDemo: undefined,
     techStack: ["Python", "Scikit-learn", "Pandas", "Tableau", "Seaborn"],
     dataset: {
       name: "IBM HR Analytics Employee Attrition",
@@ -177,11 +163,6 @@ export const projects: Project[] = [
         [37, "R&D", "Laboratory Technician", "$2,090", 7, "Yes", 3, "Yes"],
         [33, "R&D", "Research Scientist", "$2,909", 8, "Yes", 4, "No"],
         [27, "R&D", "Laboratory Technician", "$3,468", 2, "No", 1, "No"],
-        [32, "R&D", "Laboratory Technician", "$3,068", 7, "No", 4, "No"],
-        [59, "R&D", "Lab Technician", "$2,670", 1, "Yes", 3, "Yes"],
-        [30, "Sales", "Sales Executive", "$2,693", 1, "No", 4, "No"],
-        [38, "R&D", "Senior Scientist", "$9,526", 9, "No", 3, "No"],
-        [36, "Sales", "Sales Executive", "$8,827", 7, "Yes", 3, "No"],
       ],
     },
     timeline: [
@@ -237,24 +218,146 @@ export const projects: Project[] = [
     recommendations: [
       {
         title: "Address Overtime Immediately",
-        description:
-          "Audit teams with >30% of staff on consistent overtime. Hire to capacity or redistribute workload. Consider overtime as a leading indicator in monthly HR dashboards.",
+        description: "Audit teams with >30% of staff on consistent overtime. Hire to capacity or redistribute workload.",
         icon: "Clock",
-        accentColor: "#EF4444",
+        accentColor: "#f97316",
       },
       {
         title: "Revise Entry-Level Compensation",
-        description:
-          "Benchmark roles paying under $3,000/month against market data. A 10–15% salary increase for bottom quartile earners is likely cheaper than replacing them.",
+        description: "Benchmark roles paying under $3,000/month against market data. A 10–15% salary increase for bottom quartile is likely cheaper than replacing them.",
         icon: "DollarSign",
-        accentColor: "#10B981",
+        accentColor: "#fb923c",
       },
       {
         title: "Build a 90-Day Onboarding Program",
-        description:
-          "Create structured mentorship and check-in cycles for all new hires. Track satisfaction scores at 30, 60, and 90 days. The first year is when you lose the most people.",
+        description: "Create structured mentorship and check-in cycles for all new hires. Track satisfaction scores at 30, 60, and 90 days.",
         icon: "Users",
-        accentColor: "#3B82F6",
+        accentColor: "#fdba74",
+      },
+    ],
+  },
+
+  {
+    slug: "fmcg-sales-analysis",
+    title: "FMCG Daily Sales Analysis",
+    subtitle: "Mengidentifikasi faktor utama yang mendorong penjualan harian produk FMCG 2022–2024",
+    description:
+      "Analisis end-to-end data penjualan harian FMCG dari Kaggle dengan 190.757 baris transaksi. Mengidentifikasi faktor-faktor kunci seperti stok, promosi, harga, dan distribusi regional yang memengaruhi revenue — dilengkapi dashboard interaktif dan rekomendasi strategis berbasis data.",
+    coverImage: "/images/projects/fmcg/cover.jpg",
+    galleryImages: [],
+    githubUrl: "https://github.com/aliefhafid/fmcg-sales-analysis",
+    techStack: ["Python", "Pandas", "Seaborn", "Matplotlib", "Google Colab"],
+    dataset: {
+      name: "FMCG Daily Sales Data (2022–2024)",
+      source: "Kaggle",
+      rows: 190757,
+      columns: 15,
+      fileFormat: "CSV",
+      license: "CC0: Public Domain",
+      downloadUrl: "https://www.kaggle.com/datasets/beatafaron/fmcg-daily-sales-data-to-2022-2024/data",
+    },
+    businessProblem: [
+      "Faktor apa yang paling signifikan memengaruhi volume penjualan harian?",
+      "Apakah ketersediaan stok berdampak langsung terhadap jumlah unit terjual?",
+      "Seberapa besar efektivitas promosi dalam mendorong peningkatan penjualan?",
+      "Produk, kategori, dan region mana yang menjadi kontributor terbesar terhadap revenue?",
+      "Bagaimana strategi harga memengaruhi pendapatan secara keseluruhan?",
+    ],
+    tablePreview: {
+      headers: ["date", "sku", "brand", "segment", "category", "channel", "region", "pack_type", "price_unit", "promotion_flag", "stock_available", "delivered_qty", "units_sold", "day_of_week", "revenue"],
+      rows: [
+        ["2022-01-01", "YO-029", "YoBrand4", "Premium", "Yogurt", "Retail", "PL-South", "Single", "2.91", 0, 142, 120, 35, "Saturday", "101.85"],
+        ["2022-01-01", "MI-026", "MiBrand3", "Standard", "Milk", "Discount", "PL-North", "Carton", "8.60", 1, 98, 85, 48, "Saturday", "412.80"],
+        ["2022-01-02", "RE-004", "ReBrand2", "Economy", "ReadyMeal", "Retail", "PL-Central", "Single", "3.20", 0, 210, 190, 22, "Sunday", "70.40"],
+        ["2022-01-02", "YO-005", "YoBrand1", "Premium", "Yogurt", "Discount", "PL-South", "Carton", "5.50", 1, 175, 160, 61, "Sunday", "335.50"],
+        ["2022-01-03", "SN-012", "SnBrand2", "Standard", "SnackBar", "Retail", "PL-North", "Single", "1.80", 0, 320, 290, 18, "Monday", "32.40"],
+      ],
+    },
+    timeline: [
+      {
+        icon: "Database",
+        title: "Data Collection",
+        description: "Mengunduh dataset FMCG Daily Sales dari Kaggle menggunakan Kaggle API di Google Colab. Dataset mencakup 190.757 entri dengan 15 kolom tanpa missing values.",
+      },
+      {
+        icon: "Wrench",
+        title: "Data Cleaning",
+        description: "Mengkonversi kolom date ke format datetime, mengidentifikasi dan menghapus 3 baris anomali dengan nilai negatif pada units_sold dan delivered_qty.",
+      },
+      {
+        icon: "BarChart2",
+        title: "Exploratory Data Analysis",
+        description: "Membangun correlation matrix untuk 190.757 baris data. Ditemukan 5 faktor utama: volume penjualan (0.78), stok (0.67), promosi (0.50), dan harga (0.54) terhadap revenue.",
+      },
+      {
+        icon: "Layout",
+        title: "Visualisasi & Dashboard",
+        description: "Membuat scatter plot stok vs unit terjual berdasarkan promotion flag, tren penjualan harian 2022–2024, top SKU/brand/kategori/region, dan distribusi unit per hari pengiriman.",
+      },
+      {
+        icon: "Lightbulb",
+        title: "Insight & Rekomendasi",
+        description: "Merangkum 6 insight utama dan menyusun 4 rekomendasi strategis berbasis data untuk mendukung pertumbuhan bisnis FMCG.",
+      },
+    ],
+    dashboardImage: "/images/projects/fmcg/dashboard.jpg",
+    dashboardEmbed: "",
+    insights: [
+      {
+        icon: "TrendingUp",
+        title: "Tren Pertumbuhan Konsisten 2022–2024",
+        description: "Total unit terjual dan jumlah pengiriman menunjukkan tren pertumbuhan yang konsisten sepanjang 2022–2024, menandakan peningkatan permintaan dan performa bisnis yang stabil.",
+      },
+      {
+        icon: "Zap",
+        title: "Promosi Melipatgandakan Penjualan",
+        description: "Rata-rata unit terjual meningkat hampir dua kali lipat saat promosi aktif (34.06 vs 17.44 unit), menjadikan promosi salah satu pendorong utama penjualan.",
+      },
+      {
+        icon: "Package",
+        title: "Yogurt & Milk Mendominasi Revenue",
+        description: "Kategori Yogurt (8.2M revenue) dan Milk (4.1M revenue) menjadi kontributor terbesar. Brand SnBrand2 dan seri YoBrand memimpin di level brand.",
+      },
+      {
+        icon: "AlertTriangle",
+        title: "Stok Adalah Fondasi Penjualan",
+        description: "Korelasi 0.67 antara stock_available dan delivered_qty menunjukkan bahwa ketersediaan stok adalah prasyarat utama sebelum menjalankan promosi apapun.",
+      },
+      {
+        icon: "MapPin",
+        title: "Distribusi Regional yang Merata",
+        description: "Revenue tersebar merata di PL-South (6.67M), PL-North (6.66M), dan PL-Central (6.62M), menunjukkan tidak ada region yang secara signifikan tertinggal.",
+      },
+      {
+        icon: "Clock",
+        title: "Waktu Pengiriman 1–2 Hari Lebih Efektif",
+        description: "Pengiriman 1–2 hari lebih sering dikaitkan dengan transaksi berjumlah besar, meskipun secara keseluruhan waktu pengiriman tidak menunjukkan pengaruh signifikan terhadap penjualan.",
+      },
+    ],
+    recommendations: [
+      {
+        title: "Prioritaskan Manajemen Stok",
+        description: "Terapkan inventory forecasting dan safety stock untuk produk dengan permintaan tinggi seperti Yogurt dan Milk. Pastikan stok selalu tersedia sebelum menjalankan program promosi agar peningkatan penjualan dapat dimaksimalkan.",
+        icon: "Package",
+        accentColor: "#f97316",
+      },
+      {
+        title: "Optimalkan Program Promosi",
+        description: "Jalankan promosi secara terukur pada produk dengan stok memadai. Evaluasi efektivitas promosi per SKU dan region untuk menghindari promosi yang tidak menghasilkan ROI positif.",
+        icon: "Zap",
+        accentColor: "#fb923c",
+      },
+      {
+        title: "Fokus pada Produk Unggulan",
+        description: "Prioritaskan Yogurt, Milk, ReadyMeal, dan SnackBar dalam alokasi stok, distribusi, dan anggaran pemasaran. Brand SnBrand2 dan YoBrand perlu dipertahankan sebagai anchor brand.",
+        icon: "TrendingUp",
+        accentColor: "#fdba74",
+      },
+      {
+        title: "Strategi Penetapan Harga Kompetitif",
+        description: "Manfaatkan korelasi 0.54 antara price_unit dan revenue dengan menerapkan dynamic pricing per kategori dan region. Hindari penurunan harga massal yang dapat menggerus margin.",
+        icon: "DollarSign",
+        accentColor: "#f97316",
       },
     ],
   },
