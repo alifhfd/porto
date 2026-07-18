@@ -1,10 +1,10 @@
 export function Footer() {
   return (
-    <footer className="relative border-t border-border/50 px-6 py-8 text-center text-sm text-muted-foreground">
-      <p>
-        © {new Date().getFullYear()} <span className="text-primary font-semibold">Alief Hafid Sidiq</span>. 
-        Junior Data Analyst Portofolio.
-      </p>
+    <footer className="px-6 py-8">
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-muted-foreground">
+        <p>© {new Date().getFullYear()} <span className="font-bold text-foreground">Alief Hafid Sidiq</span></p>
+        <p>Built with Next.js & Tailwind CSS</p>
+      </div>
     </footer>
   )
 }

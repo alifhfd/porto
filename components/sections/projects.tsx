@@ -1,123 +1,245 @@
 'use client'
 
 import Image from 'next/image'
-import { useRef } from 'react'
-import { GlowCard } from '@/components/glow-card'
+import Link from 'next/link'
+import { useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-const projects = [
+const PROJECTS = [
   {
-    title: 'Power BI Performance Dashboard',
-    description:
-      'Dashboard interaktif untuk memantau KPI produksi, efisiensi mesin, dan tren downtime secara real-time. Menggabungkan data dari SAP ERP dan spreadsheet operasional.',
-    tags: ['Power BI', 'DAX', 'Data Modeling'],
-    image: '/images/project-sales.png',
+    slug:     'superstore-sales-analysis',
+    title:    'Superstore Sales Analysis',
+    subtitle: 'Uncovering profit drivers across regions, categories, and segments',
+    tags:     ['Python', 'Power BI', 'Excel'],
+    image:    '/images/projects/superstore/cover.jpg',
   },
   {
-    title: 'SAP ERP Inventory Monitoring',
-    description:
-      'Sistem pemantauan stok bahan baku berbasis SAP ERP dengan rekonsiliasi harian untuk menjaga akurasi inventori dan meminimalisir selisih stok fisik vs sistem.',
-    tags: ['SAP ERP', 'Inventory', 'Reconciliation'],
-    image: '/images/project-funnel.png',
+    slug:     'hr-attrition-analysis',
+    title:    'HR Attrition Analysis',
+    subtitle: 'Predicting and preventing employee turnover with data',
+    tags:     ['Python', 'Scikit-learn', 'Tableau'],
+    image:    '/images/projects/hr/cover.jpg',
   },
   {
-    title: 'Customer Churn Analysis',
-    description:
-      'Analisis pola churn pelanggan menggunakan Python dan SQL untuk mengidentifikasi faktor risiko dan memberikan rekomendasi retensi berbasis data.',
-    tags: ['Python', 'SQL', 'Analytics'],
-    image: '/images/project-churn.png',
-  },
-  {
-    title: 'Customer Segmentation',
-    description:
-      'Segmentasi pelanggan menggunakan metode clustering untuk membantu tim bisnis memahami profil pelanggan dan menyusun strategi yang lebih tepat sasaran.',
-    tags: ['Python', 'Clustering', 'Power BI'],
-    image: '/images/project-segment.png',
+    slug:     'fmcg-sales-analysis',
+    title:    'FMCG Daily Sales Analysis',
+    subtitle: 'Mengidentifikasi faktor utama yang mendorong penjualan harian FMCG',
+    tags:     ['Python', 'Pandas', 'Seaborn'],
+    image:    '/images/projects/fmcg/cover.jpg',
   },
 ]
 
-// Card width = (max-w-5xl - 2 * padding - 2 * gap) / 3
-// max-w-5xl = 64rem = 1024px, px-6 = 24px each side, gap-5 = 20px * 2 gaps
-// (1024 - 48 - 40) / 3 ≈ 312px
-const CARD_W = 'w-[300px] lg:w-[calc((64rem-3rem-2.5rem)/3)]'
+function ProjectCard({
+  project,
+  isHovered,
+  onHover,
+  onLeave,
+}: {
+  project: typeof PROJECTS[0]
+  isHovered: boolean
+  onHover: () => void
+  onLeave: () => void
+}) {
+  return (
+    <Link
+      href={`/projects/${project.slug}`}
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
+      className="relative shrink-0 overflow-hidden rounded cursor-pointer block"
+      style={{
+        width: isHovered ? 400 : 280,
+        height: 420,
+        transition: 'width 0.4s cubic-bezier(0.4,0,0.2,1)',
+        flexShrink: 0,
+      }}
+    >
+      {/* Cover image */}
+      <div
+        className="absolute inset-0"
+        style={{
+          transform: isHovered ? 'scale(1.06)' : 'scale(1)',
+          transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1)',
+        }}
+      >
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 280px, 400px"
+        />
+      </div>
+
+      {/* Dark overlay always */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: isHovered
+            ? 'linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.15) 100%)'
+            : 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%)',
+          transition: 'background 0.4s ease',
+        }}
+      />
+
+      {/* Left shadow — fade ke gelap dari kiri */}
+      <div
+        className="absolute inset-y-0 left-0 w-16 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to right, #141414, transparent)',
+          opacity: isHovered ? 0 : 1,
+          transition: 'opacity 0.4s ease',
+        }}
+      />
+
+      {/* Right shadow — fade ke gelap ke kanan */}
+      <div
+        className="absolute inset-y-0 right-0 w-16 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to left, #141414, transparent)',
+          opacity: isHovered ? 0 : 1,
+          transition: 'opacity 0.4s ease',
+        }}
+      />
+
+      {/* Card number */}
+      <div className="absolute top-5 right-5 font-mono text-xs text-white/25 tracking-widest">
+        {String(PROJECTS.indexOf(project) + 1).padStart(2, '0')}
+      </div>
+
+      {/* Top accent line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px bg-primary"
+        style={{
+          opacity: isHovered ? 1 : 0,
+          transition: 'opacity 0.3s ease',
+        }}
+      />
+
+      {/* Tech tags — muncul saat hover */}
+      <div
+        className="absolute top-5 left-5 flex flex-wrap gap-1.5"
+        style={{
+          opacity: isHovered ? 1 : 0,
+          transform: isHovered ? 'translateY(0)' : 'translateY(-6px)',
+          transition: 'opacity 0.3s ease, transform 0.3s ease',
+        }}
+      >
+        {project.tags.map(t => (
+          <span
+            key={t}
+            className="text-xs px-2 py-0.5 rounded font-medium"
+            style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.15)' }}
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+
+      {/* Bottom content */}
+      <div className="absolute bottom-0 left-0 right-0 p-6">
+        {/* Label */}
+        <p
+          className="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-2"
+          style={{
+            opacity: isHovered ? 1 : 0,
+            transform: isHovered ? 'translateY(0)' : 'translateY(6px)',
+            transition: 'opacity 0.25s ease, transform 0.25s ease',
+          }}
+        >
+          Case Study
+        </p>
+
+        {/* Title — selalu terlihat */}
+        <h3 className="font-black text-white leading-snug" style={{ fontSize: isHovered ? 20 : 17, transition: 'font-size 0.3s ease' }}>
+          {project.title}
+        </h3>
+
+        {/* Subtitle */}
+        <p
+          className="mt-2 text-sm text-white/60 leading-relaxed line-clamp-2"
+          style={{
+            opacity: isHovered ? 1 : 0,
+            transform: isHovered ? 'translateY(0)' : 'translateY(8px)',
+            transition: 'opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s',
+          }}
+        >
+          {project.subtitle}
+        </p>
+
+        {/* CTA */}
+        <div
+          className="mt-4"
+          style={{
+            opacity: isHovered ? 1 : 0,
+            transform: isHovered ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'opacity 0.3s ease 0.08s, transform 0.3s ease 0.08s',
+          }}
+        >
+          <span className="inline-flex items-center gap-2 text-sm font-bold text-white border border-white/20 rounded px-4 py-2" style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(12px)' }}>
+            View Case Study
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+              <path d="M1.5 6.5h10M7 2l4.5 4.5L7 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </Link>
+  )
+}
 
 export function Projects() {
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const ref     = useRef<HTMLDivElement>(null)
+  const [hovered, setHovered] = useState<string | null>(null)
 
   const scroll = (dir: 'left' | 'right') => {
-    const el = scrollRef.current
-    if (!el) return
-    const cardWidth = el.querySelector('div')?.clientWidth ?? 300
-    el.scrollBy({ left: dir === 'right' ? cardWidth + 20 : -(cardWidth + 20), behavior: 'smooth' })
+    ref.current?.scrollBy({ left: dir === 'right' ? 320 : -320, behavior: 'smooth' })
   }
 
   return (
-    <section id="projects" className="relative py-28">
-      {/* Header — constrained */}
-      <div className="mx-auto max-w-5xl px-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Projects</p>
-        <div className="mt-4 flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-4xl font-black tracking-tight">Studi Kasus & Project</h2>
-            <p className="mt-4 max-w-2xl text-muted-foreground">
-              Kumpulan project analisis data dan business intelligence yang pernah dikerjakan.
-            </p>
-          </div>
-          <div className="hidden sm:flex items-center gap-2 shrink-0 pb-1">
-            <button
-              onClick={() => scroll('left')}
-              className="p-2 rounded-full border border-border bg-background/80 hover:bg-accent transition-colors"
-              aria-label="Scroll kiri"
-            >
-              <ChevronLeft size={18} />
-            </button>
-            <button
-              onClick={() => scroll('right')}
-              className="p-2 rounded-full border border-border bg-background/80 hover:bg-accent transition-colors"
-              aria-label="Scroll kanan"
-            >
-              <ChevronRight size={18} />
-            </button>
+    <section id="projects" className="py-20">
+      {/* Header */}
+      <div className="max-w-6xl mx-auto px-6 mb-10">
+        <p className="text-xs font-semibold tracking-[0.25em] uppercase text-primary mb-4">Projects</p>
+        <div className="flex items-end justify-between">
+          <h2 className="text-4xl font-black tracking-tight text-foreground">Studi Kasus & Project</h2>
+          <div className="hidden sm:flex gap-2">
+            <button onClick={() => scroll('left')}  className="p-2 border border-border rounded hover:border-foreground transition-colors text-foreground"><ChevronLeft  size={16} /></button>
+            <button onClick={() => scroll('right')} className="p-2 border border-border rounded hover:border-foreground transition-colors text-foreground"><ChevronRight size={16} /></button>
           </div>
         </div>
       </div>
 
-      {/* Scroll track — starts flush with header left edge */}
+      {/* Cards track */}
       <div
-        ref={scrollRef}
-        className="mt-10 flex gap-5 overflow-x-auto scroll-smooth pb-4
-          snap-x snap-mandatory
-          [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-          pl-6 lg:pl-[max(1.5rem,calc((100vw-64rem)/2+1.5rem))]
-          pr-6"
+        ref={ref}
+        className="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        style={{ paddingLeft: 'max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem))', paddingRight: '1.5rem' }}
       >
-        {projects.map((project) => (
-          <div key={project.title} className={`snap-start shrink-0 ${CARD_W} min-w-[260px]`}>
-            <GlowCard className="h-full overflow-hidden flex flex-col">
-              <div className="relative h-44 w-full shrink-0">
-                <Image src={project.image} alt={project.title} fill className="object-cover" />
-              </div>
-              <div className="p-5 flex flex-col flex-1">
-                <h3 className="font-bold text-lg leading-snug">{project.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground flex-1">
-                  {project.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-border bg-background/60 px-3 py-0.5 text-xs font-semibold text-primary"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </GlowCard>
-          </div>
+        {PROJECTS.map(p => (
+          <ProjectCard
+            key={p.slug}
+            project={p}
+            isHovered={hovered === p.slug}
+            onHover={() => setHovered(p.slug)}
+            onLeave={() => setHovered(null)}
+          />
         ))}
-        {/* trailing space */}
         <div className="shrink-0 w-6" />
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-1.5 mt-6">
+        {PROJECTS.map(p => (
+          <div
+            key={p.slug}
+            className="rounded-full transition-all duration-300"
+            style={{
+              width:      hovered === p.slug ? 20 : 4,
+              height:     4,
+              background: hovered === p.slug ? 'var(--primary)' : 'var(--border)',
+            }}
+          />
+        ))}
       </div>
     </section>
   )
