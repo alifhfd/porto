@@ -1,28 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { Project } from "@/types/project";
 
 interface HeroProps {
   project: Project;
+  nextProject?: Project | null;
 }
 
-// Inline GitHub SVG — lucide-react v0.x doesn't export "Github"
 function GithubIcon({ className }: { className?: string }) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
     </svg>
   );
 }
 
-export default function Hero({ project }: HeroProps) {
+export default function Hero({ project, nextProject }: HeroProps) {
   return (
     <section className="relative min-h-[92vh] flex items-end overflow-hidden">
       {/* Background image */}
@@ -33,6 +29,45 @@ export default function Hero({ project }: HeroProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
       </div>
+
+      {/* ── Next Project floating button ── */}
+      {nextProject && (
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 z-20"
+        >
+          <Link
+            href={`/projects/${nextProject.slug}`}
+            className="group flex flex-col items-center gap-3"
+          >
+            {/* Vertical label */}
+            <span
+              className="text-white/40 text-xs font-mono tracking-[0.2em] uppercase"
+              style={{ writingMode: 'vertical-rl' }}
+            >
+              Next Project
+            </span>
+
+            {/* Arrow button */}
+            <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center bg-black/30 backdrop-blur-sm group-hover:border-primary group-hover:bg-primary/20 transition-all duration-300">
+              <ChevronRight size={16} className="text-white group-hover:text-primary transition-colors" />
+            </div>
+
+            {/* Project title pop-up on hover */}
+            <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+              <div className="bg-black/80 backdrop-blur-sm border border-white/10 rounded px-3 py-2 whitespace-nowrap">
+                <p className="text-xs text-white/50 font-mono uppercase tracking-widest mb-0.5">Next</p>
+                <p className="text-sm font-bold text-white">{nextProject.title}</p>
+              </div>
+              {/* Arrow pointing right */}
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0"
+                style={{ borderTop: '5px solid transparent', borderBottom: '5px solid transparent', borderLeft: '5px solid rgba(255,255,255,0.1)' }} />
+            </div>
+          </Link>
+        </motion.div>
+      )}
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-20 pt-40">

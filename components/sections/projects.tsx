@@ -6,26 +6,12 @@ import { useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const PROJECTS = [
-  {
-    slug:     'superstore-sales-analysis',
-    title:    'Superstore Sales Analysis',
-    subtitle: 'Uncovering profit drivers across regions, categories, and segments',
-    tags:     ['Python', 'Power BI', 'Excel'],
-    image:    '/images/projects/superstore/cover.jpg',
-  },
-  {
-    slug:     'hr-attrition-analysis',
-    title:    'HR Attrition Analysis',
-    subtitle: 'Predicting and preventing employee turnover with data',
-    tags:     ['Python', 'Scikit-learn', 'Tableau'],
-    image:    '/images/projects/hr/cover.jpg',
-  },
-  {
+    {
     slug:     'fmcg-sales-analysis',
     title:    'FMCG Daily Sales Analysis',
     subtitle: 'Mengidentifikasi faktor utama yang mendorong penjualan harian FMCG',
     tags:     ['Python', 'Pandas', 'Seaborn'],
-    image:    '/images/projects/fmcg/cover.jpg',
+    image:    '/images/projects/fmcg/cover.png',
   },
 ]
 

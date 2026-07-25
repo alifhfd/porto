@@ -1,15 +1,15 @@
 const FOCUS = [
-  'Data Analysis & Business Intelligence',
-  'SAP ERP Inventory Control',
-  'Quality Management ISO 9001',
-  'Production Efficiency & Material Management',
+  'Data Analisis & Visualisasi',
+  'ERP & Optimasi Proses Bisnis',
+  'Manajemen Bisnis',
+  'Manajemen Rantai Pasokan',
 ]
 
 export function About() {
   return (
     <section id="about" className="px-6 py-20">
       <div className="max-w-6xl mx-auto">
-        <p className="text-xs font-semibold tracking-[0.25em] uppercase text-primary mb-4">About</p>
+        <p className="text-xs font-semibold tracking-[0.25em] uppercase text-primary mb-4">Ringkasan</p>
 
         <div className="grid gap-12 lg:grid-cols-[1fr_280px] lg:items-start">
           <div>
@@ -17,11 +17,11 @@ export function About() {
               Tentang Alief Hafid Sidiq
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground max-w-2xl">
-              Lulusan Manajemen Bisnis dengan ketertarikan kuat pada analisis data, visualisasi,
-              business intelligence, dan optimasi proses bisnis. Terbiasa bekerja dengan data
-              operasional, SAP ERP, rekonsiliasi inventori, serta standar mutu produksi, dengan
-              komitmen untuk terus mengembangkan kemampuan analisis agar menghasilkan insight
-              yang bernilai bagi perusahaan.
+              Saat ini sedang mengembangkan kompetensi di bidang Business Analytics dan Data Analysis melalui pemanfaatan 
+              Python, SQL, Microsoft Excel, dan Power BI untuk mengolah data operasional menjadi insight yang mendukung 
+              pengambilan keputusan bisnis. Memiliki ketertarikan yang tinggi terhadap continuous improvement, 
+              operational excellence, serta penerapan analisis data untuk meningkatkan efisiensi proses, mendukung strategi bisnis, 
+              dan mengoptimalkan kinerja operasional, khususnya pada sektor manufaktur dan supply chain.
             </p>
 
             {/* Focus areas */}
@@ -43,7 +43,7 @@ export function About() {
                 { label: 'Lokasi',    value: 'Citeureup, Kab. Bogor' },
                 { label: 'Email',     value: 'haalief15@gmail.com'   },
                 { label: 'WhatsApp',  value: '+62 857-1652-3634'     },
-                { label: 'Handle',    value: '@alifhfd / Haali'      },
+                { label: 'Instagram', value: '@alifhfd'    },
               ].map(item => (
                 <div key={item.label}>
                   <dt className="font-bold text-foreground">{item.label}</dt>

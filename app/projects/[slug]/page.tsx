@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { getProjectBySlug, getAdjacentProjects } from "@/data/projects";
+import { ProjectNavbar } from "@/components/project/ProjectNavbar";
 import Hero from "@/components/project/Hero";
 import DataOverview from "@/components/project/DataOverview";
 import BusinessProblem from "@/components/project/BusinessProblem";
@@ -15,13 +16,10 @@ interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({
-  params,
-}: ProjectPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return { title: "Project Not Found" };
-
   return {
     title: `${project.title} — Alief Hafid`,
     description: project.description,
@@ -36,23 +34,23 @@ export async function generateMetadata({
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
-
   if (!project) notFound();
 
   const { prev, next } = getAdjacentProjects(slug);
 
   return (
-    <main className="min-h-screen bg-white dark:bg-neutral-950">
-      {/* 01 — Hero */}
-      <Hero project={project} />
+    <main className="min-h-screen bg-background text-foreground">
+
+      {/* Navbar */}
+      <ProjectNavbar />
+
+      {/* 01 — Hero + next project button */}
+      <Hero project={project} nextProject={next} />
 
       {/* 02 — Data Overview */}
       <DataOverview dataset={project.dataset} />
 
-      {/* Divider */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="h-px bg-neutral-100 dark:bg-neutral-900" />
-      </div>
+      <Divider />
 
       {/* 03 — Business Problem */}
       <BusinessProblem problems={project.businessProblem} />
@@ -60,21 +58,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {/* 04 — Data Preview */}
       <DataPreview tablePreview={project.tablePreview} />
 
-      {/* Divider */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="h-px bg-neutral-100 dark:bg-neutral-900" />
-      </div>
+      <Divider />
 
-      {/* 05 — Timeline Carousel */}
+      {/* 05 — Timeline */}
       <TimelineCarousel timeline={project.timeline} />
 
       {/* 06 — Dashboard */}
       <Dashboard project={project} />
 
-      {/* Divider */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="h-px bg-neutral-100 dark:bg-neutral-900" />
-      </div>
+      <Divider />
 
       {/* 07 — Insights */}
       <Insights insights={project.insights} />
@@ -84,6 +76,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       {/* 09 — Next Project */}
       <NextProject prev={prev} next={next} />
+
     </main>
+  );
+}
+
+function Divider() {
+  return (
+    <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="h-px bg-border" />
+    </div>
   );
 }

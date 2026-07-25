@@ -4,12 +4,12 @@ import { useEffect, useState, useCallback } from 'react'
 import Image from 'next/image'
 import { IntroAnimation } from '@/components/intro-animation'
 
-const TITLES = ['Data Analyst','Business Intelligence','SAP ERP Specialist','Process Optimizer']
-const TOOLS  = ['Power BI','SQL','Python','SAP ERP','Excel','ISO 9001']
+const TITLES = ['Data Analisis & Visualisasi','ERP & Optimasi Proses Bisnis','Manajemen Bisnis','Manajemen Rantai Pasokan']
+const TOOLS  = ['Power BI','SQL','Python','SAP ERP','Excel','Tableau','Data Studio','SPSS']
 const STATS  = [
-  { value: '2+', label: 'Tahun Pengalaman' },
-  { value: '4+', label: 'Sertifikasi'       },
-  { value: '3+', label: 'Project Selesai'   },
+  { value: '3+', label: 'Tahun Pengalaman Kerja' },
+  { value: '5+', label: 'Sertifikasi'       },
+  { value: '2+', label: 'Project Selesai'   },
 ]
 
 export function Hero() {
@@ -61,7 +61,7 @@ export function Hero() {
           {/* Left */}
           <div>
             <p className="text-xs font-semibold tracking-[0.25em] uppercase text-primary mb-6">
-              Data Analyst & Business Management
+              Data Analisis & Manajemen Bisnis
             </p>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] text-foreground">
@@ -76,9 +76,11 @@ export function Hero() {
             </div>
 
             <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">
-              Lulusan Manajemen Bisnis dengan ketertarikan kuat pada analisis data,
-              visualisasi, dan optimasi proses bisnis. Terbiasa dengan SAP ERP,
-              rekonsiliasi inventori, dan standar mutu produksi.
+              Lulusan Manajemen Bisnis (2026) dengan pengalaman lebih dari tiga tahun di industri 
+              manufaktur farmasi yang diperoleh selama menempuh pendidikan sarjana. 
+              Berpengalaman dalam operasional produksi, penimbangan bahan baku, penerapan Good Manufacturing Practices (GMP), 
+              pengendalian dokumentasi, koordinasi proses produksi, serta pencapaian target produksi di lingkungan manufaktur 
+              yang memiliki standar regulasi tinggi.
             </p>
 
             {/* Tool badges */}
@@ -123,7 +125,7 @@ export function Hero() {
           <div className="flex justify-center lg:justify-end">
             <div className="relative w-[260px] h-[340px] rounded-lg overflow-hidden border border-border">
               <Image
-                src="/images/profil.png"
+                src="/images/profil-2.png"
                 alt="Alief Hafid Sidiq"
                 fill
                 className="object-cover object-top"
