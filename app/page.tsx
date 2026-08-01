@@ -7,6 +7,7 @@ import { Experience }     from '@/components/sections/experience'
 import { Certifications } from '@/components/sections/certifications'
 import { Contact }        from '@/components/sections/contact'
 import { Footer }         from '@/components/footer'
+import { Reveal }         from '@/components/reveal'
 
 export default function Page() {
   return (
@@ -14,12 +15,24 @@ export default function Page() {
       <Navbar />
       <main>
         <Hero />
-        <div className="border-t border-border" /><About />
-        <div className="border-t border-border" /><Skills />
-        <div className="border-t border-border" /><Projects />
-        <div className="border-t border-border" /><Experience />
-        <div className="border-t border-border" /><Certifications />
-        <div className="border-t border-border" /><Contact />
+
+        <div className="border-t border-border" />
+        <Reveal variant="up"><About /></Reveal>
+
+        <div className="border-t border-border" />
+        <Reveal variant="up"><Skills /></Reveal>
+
+        <div className="border-t border-border" />
+        <Reveal variant="up"><Projects /></Reveal>
+
+        <div className="border-t border-border" />
+        <Reveal variant="up"><Experience /></Reveal>
+
+        <div className="border-t border-border" />
+        <Reveal variant="up"><Certifications /></Reveal>
+
+        <div className="border-t border-border" />
+        <Reveal variant="up"><Contact /></Reveal>
       </main>
       <div className="border-t border-border" />
       <Footer />

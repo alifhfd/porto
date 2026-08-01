@@ -1,58 +1,486 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
-@import 'shadcn/tailwind.css';
-
-@custom-variant dark (&:is(.dark *));
+@import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
-  --color-background:         var(--background);
-  --color-foreground:         var(--foreground);
-  --color-card:               var(--card);
-  --color-card-foreground:    var(--card-foreground);
-  --color-primary:            var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary:          var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted:              var(--muted);
-  --color-muted-foreground:   var(--muted-foreground);
-  --color-accent:             var(--accent);
-  --color-accent-foreground:  var(--accent-foreground);
-  --color-border:             var(--border);
-  --color-input:              var(--input);
-  --color-ring:               var(--ring);
-  --color-destructive:        var(--destructive);
-  --radius-sm:  calc(var(--radius) - 2px);
-  --radius-md:  var(--radius);
-  --radius-lg:  calc(var(--radius) + 2px);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius: var(--radius);
 }
 
-/* ─── DARK ONLY ─── */
-:root {
-  color-scheme: dark;
-  --background:          #141414;
-  --foreground:          #ffffff;
-  --card:                #1f1f1f;
-  --card-foreground:     #ffffff;
-  --primary:             #e50914;
-  --primary-foreground:  #ffffff;
-  --secondary:           #2a2a2a;
-  --secondary-foreground:#ffffff;
-  --muted:               #2a2a2a;
-  --muted-foreground:    #a3a3a3;
-  --accent:              #2a2a2a;
-  --accent-foreground:   #e50914;
-  --destructive:         #e50914;
-  --border:              #2a2a2a;
-  --input:               #2a2a2a;
-  --ring:                #e50914;
-  --radius: 0.375rem;
+/* ════════════════════════════════════════════════════════════
+   TOKENS — Netflix cinematic, dark only
+   (versi Tailwind v3: HSL triplet, dipakai via hsl(var(--x)))
+   ════════════════════════════════════════════════════════════ */
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    --background: 0 0% 8%; /* #141414 */
+    --foreground: 0 0% 100%; /* #ffffff */
+    --card: 0 0% 12%; /* #1f1f1f */
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 357 92% 47%; /* #e50914 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 16%; /* #2a2a2a */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 64%; /* #a3a3a3 */
+    --accent: 0 0% 16%;
+    --accent-foreground: 357 92% 47%;
+    --destructive: 357 92% 47%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 357 92% 47%;
+    --radius: 0.375rem;
+
+    /* ── ekstra sinematik ── */
+    --nf-red: 357 92% 47%;
+    --nf-red-deep: 357 92% 34%;
+    --nf-black: 0 0% 4%;
+    --ease-cinema: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-snap: cubic-bezier(0.34, 1.4, 0.64, 1);
+    --dur-reveal: 720ms;
+  }
 }
 
 @layer base {
-  * { @apply border-border; box-sizing: border-box; }
-  body { @apply bg-background text-foreground; -webkit-font-smoothing: antialiased; }
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: hsl(var(--nf-red));
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--nf-red));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* scrollbar sinematik */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--nf-black));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(0 0% 22%);
+    border-radius: 999px;
+    border: 2px solid hsl(var(--nf-black));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--nf-red));
+  }
 }
 
-html { scroll-behavior: smooth; }
+/* ════════════════════════════════════════════════════════════
+   KEYFRAMES — semua hanya opacity / transform (GPU-friendly)
+   ════════════════════════════════════════════════════════════ */
+@keyframes nf-kenburns {
+  0% {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.22) translate3d(-2%, -1.5%, 0);
+  }
+}
+
+@keyframes meteor {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(0);
+  }
+  5% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(-500px);
+  }
+}
+
+@keyframes nf-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes nf-wipe {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes nf-sweep {
+  0% {
+    transform: translateX(-110%);
+  }
+  60%,
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+@keyframes nf-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes nf-pulse-ring {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.9);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+@keyframes nf-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0.15;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   REVEAL — dipicu IntersectionObserver (class .is-visible)
+   ════════════════════════════════════════════════════════════ */
+@layer components {
+  .reveal {
+  opacity: 0;
+  filter: blur(var(--reveal-blur, 8px));
+  transform: translate3d(var(--reveal-x, 0), var(--reveal-y, 30px), 0)
+    scale(var(--reveal-scale, 1));
+  transition:
+    opacity var(--dur-reveal) var(--ease-cinema),
+    filter var(--dur-reveal) var(--ease-cinema),
+    transform var(--dur-reveal) var(--ease-cinema);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, filter, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translate3d(0, 0, 0) scale(1);
+  will-change: auto;
+}
+
+  /* ── Kartu ala Netflix: zoom + angkat + glow merah ── */
+  .nf-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: calc(var(--radius) + 2px);
+    background: hsl(var(--card));
+    transform-origin: center bottom;
+    transition:
+      transform 420ms var(--ease-cinema),
+      box-shadow 420ms var(--ease-cinema),
+      border-color 420ms var(--ease-cinema);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .nf-card:hover {
+      transform: translate3d(0, -8px, 0) scale(1.03);
+      box-shadow:
+        0 28px 64px -16px rgb(0 0 0 / 0.9),
+        0 0 0 1px hsl(var(--nf-red) / 0.55);
+      z-index: 20;
+    }
+    .nf-card:hover .nf-card-reveal {
+      max-height: 8rem;
+      opacity: 1;
+    }
+    .nf-card:hover .nf-card-media {
+      transform: scale(1.08);
+    }
+  }
+
+  .nf-card-media {
+    transition: transform 620ms var(--ease-cinema);
+  }
+
+  .nf-card-reveal {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      max-height 420ms var(--ease-cinema),
+      opacity 320ms ease;
+  }
+
+  /* ── Link navbar: garis merah menyapu dari kiri ── */
+  .nf-link {
+    position: relative;
+    transition: color 260ms ease;
+  }
+  .nf-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 100%;
+    background: hsl(var(--nf-red));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 380ms var(--ease-cinema);
+  }
+  .nf-link:hover::after,
+  .nf-link[data-active="true"]::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* ── Tombol utama ── */
+  .nf-btn {
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 240ms var(--ease-snap),
+      background-color 240ms ease,
+      box-shadow 240ms ease;
+  }
+  .nf-btn:hover {
+    transform: translate3d(0, -2px, 0);
+  }
+  .nf-btn:active {
+    transform: translate3d(0, 0, 0) scale(0.98);
+  }
+  .nf-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 35%;
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.28), transparent);
+    transform: translateX(-110%);
+    pointer-events: none;
+  }
+  .nf-btn:hover::before {
+    animation: nf-sweep 900ms var(--ease-cinema);
+  }
+
+  /* ── Divider merah yang "terisi" saat masuk layar ── */
+  .nf-divider span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--nf-red)) 0%,
+      hsl(var(--nf-red-deep)) 40%,
+      transparent 100%
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1100ms var(--ease-cinema);
+  }
+  .nf-divider.is-visible span {
+    transform: scaleX(1);
+  }
+
+  /* ── Skill bar: terisi saat parent ter-reveal ── */
+  .skill-track span {
+    display: block;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: linear-gradient(90deg, hsl(var(--nf-red-deep)), hsl(var(--nf-red)));
+    transition: transform 1200ms var(--ease-cinema);
+    transition-delay: var(--bar-delay, 0ms);
+  }
+  .is-visible .skill-track span {
+    transform: scaleX(var(--lvl, 0.7));
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   UTILITIES
+   ════════════════════════════════════════════════════════════ */
+@layer utilities {
+  .animate-kenburns {
+    animation: nf-kenburns 32s ease-in-out infinite alternate;
+  }
+
+  .animate-rise {
+    opacity: 0;
+    animation: nf-rise 900ms var(--ease-cinema) forwards;
+  }
+
+  .animate-meteor {
+  animation: meteor linear infinite;
+}
+
+  .animate-wipe {
+    transform-origin: left;
+    animation: nf-wipe 900ms var(--ease-cinema) forwards;
+  }
+
+  .animate-marquee {
+    animation: nf-marquee 38s linear infinite;
+  }
+
+  .animate-ping-ring {
+    animation: nf-pulse-ring 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .animate-blink {
+    animation: nf-blink 1.6s steps(1) infinite;
+  }
+
+  /* jeda animasi saat kursor ada di atas ticker */
+  .pause-on-hover:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+
+  /* browser boleh melewati render section di luar layar → hemat */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 720px;
+  }
+
+  /* judul sinematik */
+  .text-cinema {
+    text-shadow: 0 2px 24px rgb(0 0 0 / 0.85);
+  }
+
+  .text-gradient-red {
+    background: linear-gradient(180deg, #fff 30%, hsl(var(--nf-red)) 160%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* angka besar transparan ala "Top 10" */
+  .num-ghost {
+    -webkit-text-stroke: 1.5px hsl(0 0% 100% / 0.16);
+    color: transparent;
+  }
+
+  /* gradasi gelap bawah untuk poster */
+  .poster-scrim {
+    background: linear-gradient(
+      to top,
+      hsl(var(--nf-black)) 4%,
+      hsl(var(--nf-black) / 0.7) 32%,
+      transparent 72%
+    );
+  }
+
+  .vignette {
+    background:
+      radial-gradient(120% 90% at 50% 0%, transparent 40%, hsl(var(--nf-black) / 0.85) 100%),
+      linear-gradient(to top, hsl(var(--background)) 2%, transparent 42%);
+  }
+
+  /* baris horizontal ala Netflix */
+  .row-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+  }
+  .row-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .row-snap {
+    scroll-snap-align: start;
+  }
+
+  /* butiran film halus */
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   AKSESIBILITAS — matikan gerak bila user memintanya
+   ════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .nf-divider span,
+  .skill-track span {
+    transform: scaleX(1);
+  }
+}

@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from 'react'
 import Image from 'next/image'
 import { IntroAnimation } from '@/components/intro-animation'
+import { Meteors } from "@/components/meteors";
 
 const TITLES = ['Data Analisis & Visualisasi','ERP & Optimasi Proses Bisnis','Manajemen Bisnis','Manajemen Rantai Pasokan']
 const TOOLS  = ['Power BI','SQL','Python','SAP ERP','Excel','Tableau','Data Studio','SPSS']
@@ -53,10 +54,13 @@ export function Hero() {
 
       <section
         id="hero"
-        className="min-h-screen flex items-center px-6 pt-14"
+        className="relative overflow-hidden min-h-screen flex items-center px-6 pt-14"
         style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.5s ease' }}
       >
-        <div className="max-w-6xl mx-auto w-full grid gap-16 lg:grid-cols-[1fr_360px] lg:items-center py-20">
+        {/* background meteor */}
+        <Meteors number={20} />
+
+        <div className="relative z-10 max-w-6xl mx-auto w-full grid gap-16 lg:grid-cols-[1fr_360px] lg:items-center py-20">
 
           {/* Left */}
           <div>
@@ -94,15 +98,15 @@ export function Hero() {
 
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#projects"
+              
+              <a href="#projects"
                 onClick={e => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) }}
                 className="px-6 py-2.5 bg-primary text-white text-sm font-bold rounded hover:bg-primary/90 transition-colors"
               >
                 Lihat Projects
               </a>
-              <a
-                href="#contact"
+              
+               <a href="#contact"
                 onClick={e => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
                 className="px-6 py-2.5 border border-border text-sm font-bold rounded text-foreground hover:border-foreground transition-colors"
               >
