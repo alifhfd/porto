@@ -5,14 +5,14 @@ export function Contact() {
         <p className="text-xs font-semibold tracking-[0.25em] uppercase text-primary mb-4">Contact</p>
         <h2 className="text-4xl font-black tracking-tight text-foreground mb-4">Mari Terhubung</h2>
         <p className="text-muted-foreground max-w-xl mb-12">
-          Terbuka untuk peluang kerja, kolaborasi data analytics, dan diskusi optimasi proses bisnis.
+          Sangat terbuka untuk peluang kerja baru, dan berkolaborasi serta berkembang bersama.
         </p>
 
         <div className="grid sm:grid-cols-3 gap-3 mb-10">
           {[
             { label: 'Email',    value: 'haalief15@gmail.com', href: 'mailto:haalief15@gmail.com' },
-            { label: 'WhatsApp', value: '+62 857-1652-3634',   href: 'https://wa.me/6285716523634' },
-            { label: 'Lokasi',   value: 'Citeureup, Kab. Bogor', href: undefined },
+            { label: 'Nomor Telepon', value: '+62 857-1652-3634',   href: 'https://wa.me/6285716523634' },
+            { label: 'Alamat',   value: 'Citeureup, Kab. Bogor', href: undefined },
           ].map(c => (
             <div key={c.label} className="border border-border rounded p-5">
               <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">{c.label}</p>

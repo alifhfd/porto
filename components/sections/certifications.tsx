@@ -4,10 +4,10 @@ import { useRef } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const CERTS = [
-  { name: 'ISO 9001:2015 Quality Management', issuer: 'BSI / Internal Training', year: '2024', desc: 'Sistem manajemen mutu untuk memastikan konsistensi kualitas produk dan proses.' },
-  { name: 'Data Analytics Foundations',       issuer: 'Online Platform',          year: '2024', desc: 'Dasar-dasar analisis data, statistik deskriptif, dan visualisasi data.' },
-  { name: 'Accelerate Job with AI',           issuer: 'Online Platform',          year: '2024', desc: 'Penerapan AI tools untuk meningkatkan produktivitas dan kualitas kerja.' },
-  { name: 'Siswa Magang Terbaik',             issuer: 'SMK Bina Vokasi Nusantara', year: '2021', desc: 'Penghargaan sebagai siswa magang terbaik di bidang Mechanical Engineering.' },
+  { name: 'Quality Management', issuer: 'BSI International', year: '2024', desc: 'Sistem manajemen mutu untuk memastikan konsistensi kualitas produk dan proses.' },
+  { name: 'Data Analytics Foundations', issuer: 'Coursera : Deeplearning.ai', year: '2024', desc: 'Dasar-dasar analisis data, statistik deskriptif, dan visualisasi data.' },
+  { name: 'Accelerate Job with AI', issuer: 'Coursera : Google', year: '2024', desc: 'Penerapan AI tools untuk meningkatkan produktivitas dan kualitas kerja.' },
+  { name: 'Supply Chain Management & Analytics', issuer: 'Coursera : Unilever', year: '2025', desc: 'Dasar-dasar untuk manajemen rantai pasok dan menganalisis datanya.' },
 ]
 
 export function Certifications() {
@@ -34,14 +34,16 @@ export function Certifications() {
         className="flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         style={{ paddingLeft: 'max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem))', paddingRight: '1.5rem' }}
       >
-        {CERTS.map(c => (
-          <div key={c.name} className="shrink-0 w-[280px] border border-border rounded p-6 flex flex-col">
-            <span className="text-4xl font-black text-primary/20 leading-none">{c.year}</span>
-            <h3 className="mt-4 font-black text-foreground leading-snug">{c.name}</h3>
-            <p className="mt-1 text-xs font-bold text-primary">{c.issuer}</p>
-            <p className="mt-3 text-sm text-muted-foreground flex-1">{c.desc}</p>
-          </div>
-        ))}
+            {CERTS.map(c => (
+      <div key={c.name} className="shrink-0 w-[280px] border border-border rounded p-6 flex flex-col">
+        <span className="text-xs font-semibold px-3 py-1 border border-border rounded text-muted-foreground">
+          {c.year}
+        </span>
+        <h3 className="mt-4 font-black text-foreground leading-snug">{c.name}</h3>
+        <p className="mt-1 text-sm font-semibold text-[#CD5C5C]">{c.issuer}</p>
+        <p className="mt-3 text-sm text-muted-foreground flex-1">{c.desc}</p>
+      </div>
+    ))}
         <div className="shrink-0 w-6" />
       </div>
     </section>
