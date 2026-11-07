@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Maximize2 } from "lucide-react";
 import { Project } from "@/types/project";
+import TiltGlowCard from "./TiltGlowCard";
 
 interface DashboardProps {
   project: Project;
@@ -49,8 +50,9 @@ export default function Dashboard({ project }: DashboardProps) {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="group relative rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-2xl shadow-black/10 dark:shadow-black/40 cursor-zoom-in"
+        className="h-full"
       >
+        <TiltGlowCard className="group relative rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-2xl shadow-black/10 dark:shadow-black/40 cursor-zoom-in transition-all duration-300">
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 z-10 flex items-center justify-center">
           <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 dark:bg-black/80 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2 text-sm font-medium text-neutral-900 dark:text-white">
@@ -73,6 +75,7 @@ export default function Dashboard({ project }: DashboardProps) {
             className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
           />
         )}
+        </TiltGlowCard>
       </motion.div>
     </section>
   );
