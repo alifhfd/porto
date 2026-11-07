@@ -61,8 +61,9 @@ function ProjectCard({
         className="absolute inset-0"
         style={{
           background: isHovered
-            ? 'linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.15) 100%)'
-            : 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%)',
+            ? 'linear-gradient(to top, rgba(17,22,59,1) 0%, rgba(17,22,59,0.5) 50%, rgba(17,22,59,0.15) 100%)'
+            : 'linear-gradient(to top, rgba(17,22,59,0.85) 0%, rgba(17,22,59,0.3) 60%, rgba(17,22,59,0.1) 100%)',
+          opacity: 0.35,
           transition: 'background 0.4s ease',
         }}
       />
@@ -72,7 +73,7 @@ function ProjectCard({
         className="absolute inset-y-0 left-0 w-16 pointer-events-none"
         style={{
           background: 'linear-gradient(to right, #ffffff, transparent)',
-          opacity: isHovered ? 0 : 1,
+          opacity: isHovered ? 0 : 0.35,
           transition: 'opacity 0.4s ease',
         }}
       />
@@ -82,7 +83,7 @@ function ProjectCard({
         className="absolute inset-y-0 right-0 w-16 pointer-events-none"
         style={{
           background: 'linear-gradient(to left, #ffffff, transparent)',
-          opacity: isHovered ? 0 : 1,
+          opacity: isHovered ? 0 : 0.35,
           transition: 'opacity 0.4s ease',
         }}
       />
@@ -199,7 +200,7 @@ export function Projects() {
       <div
         ref={ref}
         className="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        style={{ paddingLeft: 'max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem))', paddingRight: '1.5rem' }}
+        style={{ paddingLeft: 'max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem))', paddingRight: '1.5rem', opacity: 0.35 }}
       >
         {PROJECTS.map(p => (
           <ProjectCard
