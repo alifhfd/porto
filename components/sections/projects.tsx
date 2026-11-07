@@ -63,7 +63,7 @@ function ProjectCard({
           background: isHovered
             ? 'linear-gradient(to top, rgba(17,22,59,1) 0%, rgba(17,22,59,0.5) 50%, rgba(17,22,59,0.15) 100%)'
             : 'linear-gradient(to top, rgba(17,22,59,0.85) 0%, rgba(17,22,59,0.3) 60%, rgba(17,22,59,0.1) 100%)',
-          opacity: 0.35,
+          opacity: 0.84,
           transition: 'background 0.4s ease',
         }}
       />
