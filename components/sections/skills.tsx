@@ -37,7 +37,7 @@ export function Skills() {
 
         <div className="grid gap-8 md:grid-cols-3">
           {GROUPS.map(g => (
-            <div key={g.category} className="border border-border rounded p-6">
+            <div key={g.category} className="rounded-2xl border border-sky-100 bg-gradient-to-br from-white to-sky-50/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/70">
               <p className="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-6">{g.category}</p>
               <div className="space-y-5">
                 {g.items.map(s => (

@@ -6,7 +6,7 @@ import { motion, useSpring } from 'framer-motion'
 import { IntroAnimation } from '@/components/intro-animation'
 import { Meteors } from "@/components/meteors";
 
-const TITLES = ['Data Analisis & Visualisasi','ERP & Optimasi Proses Bisnis','Manajemen Bisnis','Manajemen Rantai Pasokan']
+const TITLES = ['Data Analisis & Visualisasi','Manajemen Bisnis','Manajemen Rantai Pasokan']
 const TOOLS  = ['Power BI','SQL','Python','SAP ERP','Excel','Tableau','Data Studio','SPSS']
 const STATS  = [
   { value: '3+', label: 'Tahun Pengalaman Kerja' },
@@ -43,7 +43,7 @@ function TiltCard({ maxTilt = 15, src, alt, caption }: TiltCardProps) {
   }
 
   return (
-    <div className="w-[260px] h-[340px]" style={{ perspective: 1000 }}>
+    <div className="w-full max-w-[360px] aspect-[4/3]" style={{ perspective: 1000 }}>
       <motion.div
         ref={cardRef}
         onPointerMove={handlePointerMove}
@@ -81,7 +81,7 @@ export function Hero() {
 
   useEffect(() => {
     if (!visible) return
-    const current = TITLES[titleIndex]
+    const current = TITLES[titleIndex % TITLES.length]
     let t: ReturnType<typeof setTimeout>
     if (!isDeleting && displayed.length < current.length) {
       t = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 75)

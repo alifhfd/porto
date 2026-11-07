@@ -35,8 +35,8 @@ export function Certifications() {
         style={{ paddingLeft: 'max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem))', paddingRight: '1.5rem' }}
       >
             {CERTS.map(c => (
-      <div key={c.name} className="shrink-0 w-[280px] border border-border rounded p-6 flex flex-col">
-        <span className="text-xs font-semibold px-3 py-1 border border-border rounded text-muted-foreground">
+      <div key={c.name} className="group shrink-0 w-[280px] rounded-2xl border border-sky-100 bg-gradient-to-br from-white to-sky-50/70 p-6 flex flex-col shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/70">
+        <span className="w-fit rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold text-primary">
           {c.year}
         </span>
         <h3 className="mt-4 font-black text-foreground leading-snug">{c.name}</h3>

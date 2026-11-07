@@ -27,7 +27,7 @@ export function Experience() {
 
         <div className="space-y-4">
           {EXPERIENCES.map(exp => (
-            <div key={exp.title} className="border border-border rounded p-6">
+            <div key={exp.title} className="rounded-2xl border border-sky-100 bg-gradient-to-br from-white to-sky-50/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/70">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-5">
                 <div>
                   <h3 className="text-lg font-black text-foreground">{exp.title}</h3>
@@ -56,9 +56,9 @@ export function Experience() {
           <h2 className="text-4xl font-black tracking-tight text-foreground mb-8">Pendidikan</h2>
           <div className="space-y-3">
             {EDUCATION.map((ed, i) => (
-              <div key={ed.school} className="border border-border rounded p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <div key={ed.school} className="rounded-2xl border border-sky-100 bg-gradient-to-br from-white to-sky-50/70 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/70">
                 <div className="flex items-start gap-4">
-                  <span className="text-xl font-black text-primary/30 leading-none mt-0.5">{String(i+1).padStart(2,'0')}</span>
+                  <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sm font-black text-primary">{String(i+1).padStart(2,'0')}</span>
                   <div>
                     <h3 className="font-black text-foreground">{ed.school}</h3>
                     <p className="text-sm text-muted-foreground mt-0.5">{ed.degree}</p>
