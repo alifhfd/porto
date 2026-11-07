@@ -63,7 +63,7 @@ function ProjectCard({
           background: isHovered
             ? 'linear-gradient(to top, rgba(17,22,59,1) 0%, rgba(17,22,59,0.5) 50%, rgba(17,22,59,0.15) 100%)'
             : 'linear-gradient(to top, rgba(17,22,59,0.85) 0%, rgba(17,22,59,0.3) 60%, rgba(17,22,59,0.1) 100%)',
-          opacity: 0.84,
+          opacity: 0.55,
           transition: 'background 0.4s ease',
         }}
       />
@@ -137,13 +137,13 @@ function ProjectCard({
         </p>
 
         {/* Title — selalu terlihat */}
-        <h3 className="font-black text-white leading-snug" style={{ fontSize: isHovered ? 20 : 17, transition: 'font-size 0.3s ease' }}>
+        <h3 className="font-black text-white leading-snug" style={{ fontSize: isHovered ? 20 : 17, transition: 'font-size 0.3s ease', textShadow: '0 2px 10px rgba(17,22,59,0.85)' }}>
           {project.title}
         </h3>
 
         {/* Subtitle */}
         <p
-          className="mt-2 text-sm text-white/60 leading-relaxed line-clamp-2"
+          className="mt-2 text-sm text-white/90 leading-relaxed line-clamp-2"
           style={{
             opacity: isHovered ? 1 : 0,
             transform: isHovered ? 'translateY(0)' : 'translateY(8px)',
@@ -200,7 +200,7 @@ export function Projects() {
       <div
         ref={ref}
         className="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        style={{ paddingLeft: 'max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem))', paddingRight: '1.5rem', opacity: 0.35 }}
+        style={{ paddingLeft: 'max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem))', paddingRight: '1.5rem' }}
       >
         {PROJECTS.map(p => (
           <ProjectCard
