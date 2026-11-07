@@ -61,8 +61,9 @@ function ProjectCard({
         className="absolute inset-0"
         style={{
           background: isHovered
-            ? 'linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.15) 100%)'
-            : 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%)',
+            ? 'linear-gradient(to top, rgba(17,22,59,1) 0%, rgba(17,22,59,0.5) 50%, rgba(17,22,59,0.15) 100%)'
+            : 'linear-gradient(to top, rgba(17,22,59,0.85) 0%, rgba(17,22,59,0.3) 60%, rgba(17,22,59,0.1) 100%)',
+          opacity: 0.55,
           transition: 'background 0.4s ease',
         }}
       />
@@ -71,8 +72,8 @@ function ProjectCard({
       <div
         className="absolute inset-y-0 left-0 w-16 pointer-events-none"
         style={{
-          background: 'linear-gradient(to right, #141414, transparent)',
-          opacity: isHovered ? 0 : 1,
+          background: 'linear-gradient(to right, #ffffff, transparent)',
+          opacity: isHovered ? 0 : 0.35,
           transition: 'opacity 0.4s ease',
         }}
       />
@@ -81,8 +82,8 @@ function ProjectCard({
       <div
         className="absolute inset-y-0 right-0 w-16 pointer-events-none"
         style={{
-          background: 'linear-gradient(to left, #141414, transparent)',
-          opacity: isHovered ? 0 : 1,
+          background: 'linear-gradient(to left, #ffffff, transparent)',
+          opacity: isHovered ? 0 : 0.35,
           transition: 'opacity 0.4s ease',
         }}
       />
@@ -114,7 +115,7 @@ function ProjectCard({
           <span
             key={t}
             className="text-xs px-2 py-0.5 rounded font-medium"
-            style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.15)' }}
+            style={{ background: 'rgba(17,22,59,0.9)', backdropFilter: 'blur(8px)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.55)', boxShadow: '0 2px 8px rgba(0,0,0,0.3)' }}
           >
             {t}
           </span>
@@ -136,13 +137,13 @@ function ProjectCard({
         </p>
 
         {/* Title — selalu terlihat */}
-        <h3 className="font-black text-white leading-snug" style={{ fontSize: isHovered ? 20 : 17, transition: 'font-size 0.3s ease' }}>
+        <h3 className="font-black text-white leading-snug" style={{ fontSize: isHovered ? 20 : 17, transition: 'font-size 0.3s ease', textShadow: '0 2px 10px rgba(17,22,59,0.85)' }}>
           {project.title}
         </h3>
 
         {/* Subtitle */}
         <p
-          className="mt-2 text-sm text-white/60 leading-relaxed line-clamp-2"
+          className="mt-2 text-sm text-white/90 leading-relaxed line-clamp-2"
           style={{
             opacity: isHovered ? 1 : 0,
             transform: isHovered ? 'translateY(0)' : 'translateY(8px)',

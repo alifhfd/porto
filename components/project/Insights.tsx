@@ -13,6 +13,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 import { Insight } from "@/types/project";
+import TiltGlowCard from "./TiltGlowCard";
 
 const iconMap: Record<string, React.ElementType> = {
   TrendingUp,
@@ -66,8 +67,9 @@ export default function Insights({ insights }: InsightsProps) {
                   delay: i * 0.07,
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
-                className="group p-6 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 hover:border-neutral-200 dark:hover:border-neutral-700 hover:shadow-sm transition-all duration-200"
+                className="h-full"
               >
+                <TiltGlowCard className="group h-full p-6 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 hover:border-sky-200 dark:hover:border-sky-700 transition-all duration-200">
                 <div className="w-10 h-10 rounded-xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-5 group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 transition-colors">
                   <Icon className="w-4.5 h-4.5 text-neutral-600 dark:text-neutral-300" />
                 </div>
@@ -77,6 +79,7 @@ export default function Insights({ insights }: InsightsProps) {
                 <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
                   {insight.description}
                 </p>
+                </TiltGlowCard>
               </motion.div>
             );
           })}

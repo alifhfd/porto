@@ -14,7 +14,7 @@ export function Contact() {
             { label: 'Nomor Telepon', value: '+62 857-1652-3634',   href: 'https://wa.me/6285716523634' },
             { label: 'Alamat',   value: 'Citeureup, Kab. Bogor', href: undefined },
           ].map(c => (
-            <div key={c.label} className="border border-border rounded p-5">
+            <div key={c.label} className="group rounded-2xl border border-sky-100 bg-gradient-to-br from-white to-sky-50/70 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/70">
               <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">{c.label}</p>
               {c.href
                 ? <a href={c.href} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-foreground hover:text-primary transition-colors break-all">{c.value}</a>

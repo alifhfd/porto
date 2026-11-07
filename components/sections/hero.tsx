@@ -1,17 +1,65 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, useRef } from 'react'
 import Image from 'next/image'
+import { motion, useSpring } from 'framer-motion'
 import { IntroAnimation } from '@/components/intro-animation'
 import { Meteors } from "@/components/meteors";
 
-const TITLES = ['Data Analisis & Visualisasi','ERP & Optimasi Proses Bisnis','Manajemen Bisnis','Manajemen Rantai Pasokan']
+const TITLES = ['Data Analisis & Visualisasi','Manajemen Bisnis','Manajemen Rantai Pasokan']
 const TOOLS  = ['Power BI','SQL','Python','SAP ERP','Excel','Tableau','Data Studio','SPSS']
 const STATS  = [
   { value: '3+', label: 'Tahun Pengalaman Kerja' },
   { value: '5+', label: 'Sertifikasi'       },
   { value: '2+', label: 'Project Selesai'   },
 ]
+
+type TiltCardProps = {
+  maxTilt?: number
+  src: string
+  alt: string
+  caption: React.ReactNode
+}
+
+function TiltCard({ maxTilt = 15, src, alt, caption }: TiltCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const rotateX = useSpring(0, { stiffness: 240, damping: 24 })
+  const rotateY = useSpring(0, { stiffness: 240, damping: 24 })
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const card = cardRef.current
+    if (!card) return
+
+    const bounds = card.getBoundingClientRect()
+    const x = (event.clientX - bounds.left) / bounds.width
+    const y = (event.clientY - bounds.top) / bounds.height
+    rotateX.set((0.5 - y) * maxTilt)
+    rotateY.set((x - 0.5) * maxTilt)
+  }
+
+  const resetTilt = () => {
+    rotateX.set(0)
+    rotateY.set(0)
+  }
+
+  return (
+    <div className="w-full max-w-[420px] aspect-square" style={{ perspective: 1000 }}>
+      <motion.div
+        ref={cardRef}
+        onPointerMove={handlePointerMove}
+        onPointerLeave={resetTilt}
+        style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+        className="relative w-full h-full rounded-2xl overflow-hidden border border-border bg-[#050505] shadow-xl shadow-sky-900/15"
+      >
+        <Image src={src} alt={alt} fill className="object-contain object-center" priority />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#11163b]/90 via-[#11163b]/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 px-4 py-4 text-white" style={{ transform: 'translateZ(24px)' }}>
+          {caption}
+        </div>
+      </motion.div>
+    </div>
+  )
+}
 
 export function Hero() {
   const [titleIndex, setTitleIndex] = useState(0)
@@ -33,7 +81,7 @@ export function Hero() {
 
   useEffect(() => {
     if (!visible) return
-    const current = TITLES[titleIndex]
+    const current = TITLES[titleIndex % TITLES.length]
     let t: ReturnType<typeof setTimeout>
     if (!isDeleting && displayed.length < current.length) {
       t = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 75)
@@ -55,12 +103,16 @@ export function Hero() {
       <section
         id="hero"
         className="relative overflow-hidden min-h-screen flex items-center px-6 pt-14"
-        style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.5s ease' }}
+        style={{
+          opacity: visible ? 1 : 0,
+          transition: 'opacity 0.5s ease',
+          background: 'radial-gradient(ellipse at 78% 38%, hsl(198 100% 96%) 0%, transparent 42%)',
+        }}
       >
         {/* background meteor */}
         <Meteors number={20} />
 
-        <div className="relative z-10 max-w-6xl mx-auto w-full grid gap-16 lg:grid-cols-[1fr_360px] lg:items-center py-20">
+        <div className="relative z-10 max-w-6xl mx-auto w-full grid gap-16 lg:grid-cols-[1fr_420px] lg:items-center py-20">
 
           {/* Left */}
           <div>
@@ -127,20 +179,16 @@ export function Hero() {
 
           {/* Right — foto */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-[260px] h-[340px] rounded-lg overflow-hidden border border-border">
-              <Image
-                src="/images/profil-2.png"
-                alt="Alief Hafid Sidiq"
-                fill
-                className="object-cover object-top"
-                priority
-              />
-              {/* Bottom label */}
-              <div className="absolute bottom-0 left-0 right-0 bg-background/90 border-t border-border px-4 py-3">
-                <p className="text-sm font-bold text-foreground leading-none">Alief Hafid Sidiq</p>
-                <p className="text-xs text-primary mt-1 font-semibold">Open to Work</p>
-              </div>
-            </div>
+            <TiltCard
+              src="/images/profil-2.png"
+              alt="Alief Hafid Sidiq"
+              caption={(
+                <>
+                  <p className="text-sm font-bold leading-none">Alief Hafid Sidiq</p>
+                  <p className="text-xs text-sky-200 mt-1 font-semibold">Open to Work</p>
+                </>
+              )}
+            />
           </div>
         </div>
       </section>

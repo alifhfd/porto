@@ -13,6 +13,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 import { Recommendation } from "@/types/project";
+import TiltGlowCard from "./TiltGlowCard";
 
 const iconMap: Record<string, React.ElementType> = {
   ShieldCheck: Shield,
@@ -67,8 +68,9 @@ export default function Recommendations({ recommendations }: RecommendationsProp
                 delay: i * 0.1,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
-              className="group relative p-7 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 hover:shadow-md dark:hover:shadow-black/30 transition-all duration-300 overflow-hidden"
+              className="h-full"
             >
+              <TiltGlowCard className="group relative h-full p-7 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 hover:border-sky-200 dark:hover:border-sky-700 transition-all duration-300 overflow-hidden">
               <div
                 className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl transition-all duration-300 group-hover:w-1.5"
                 style={{ backgroundColor: rec.accentColor }}
@@ -85,6 +87,7 @@ export default function Recommendations({ recommendations }: RecommendationsProp
               <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
                 {rec.description}
               </p>
+              </TiltGlowCard>
             </motion.div>
           );
         })}

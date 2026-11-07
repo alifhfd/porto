@@ -32,6 +32,7 @@ interface TimelineCarouselProps {
 export default function TimelineCarousel({ timeline }: TimelineCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
+    containScroll: false,
     loop: false,
     skipSnaps: false,
     dragFree: false,
@@ -100,7 +101,7 @@ export default function TimelineCarousel({ timeline }: TimelineCarouselProps) {
       </div>
 
       <div ref={emblaRef} className="overflow-hidden cursor-grab active:cursor-grabbing">
-        <div className="flex gap-4 px-6 md:px-12">
+        <div className="flex gap-4 px-[max(0px,calc(50vw_-_150px))] md:px-[max(0px,calc(50vw_-_180px))]">
           {timeline.map((phase, i) => {
             const Icon = iconMap[phase.icon] ?? Database;
             const isActive = i === selectedIndex;
@@ -119,7 +120,7 @@ export default function TimelineCarousel({ timeline }: TimelineCarouselProps) {
                 <div
                   className={`relative p-7 rounded-3xl h-full border transition-all duration-300 ${
                     isActive
-                      ? "bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 shadow-xl shadow-black/5 dark:shadow-black/30"
+                      ? "bg-white dark:bg-neutral-900 border-sky-300 dark:border-sky-500/60 shadow-[0_0_32px_rgba(14,165,233,0.22)] ring-1 ring-sky-200 dark:shadow-[0_0_36px_rgba(14,165,233,0.28)] dark:ring-sky-500/30"
                       : "bg-neutral-100 dark:bg-neutral-900/50 border-neutral-200/50 dark:border-neutral-800"
                   }`}
                 >

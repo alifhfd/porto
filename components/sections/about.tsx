@@ -27,7 +27,7 @@ export function About() {
             {/* Focus areas */}
             <div className="mt-10 grid sm:grid-cols-2 gap-3">
               {FOCUS.map(f => (
-                <div key={f} className="border border-border rounded p-4">
+                <div key={f} className="group rounded-2xl border border-sky-100 bg-gradient-to-br from-white to-sky-50/70 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/70">
                   <p className="text-xs text-primary font-semibold uppercase tracking-widest mb-1">Fokus</p>
                   <p className="text-sm font-bold text-foreground">{f}</p>
                 </div>
@@ -36,7 +36,7 @@ export function About() {
           </div>
 
           {/* Profile card */}
-          <div className="border border-border rounded p-6">
+          <div className="rounded-2xl border border-sky-100 bg-gradient-to-br from-white to-sky-50/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/70">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-5">Profil Singkat</p>
             <dl className="space-y-4 text-sm">
               {[
