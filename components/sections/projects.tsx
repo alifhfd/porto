@@ -115,7 +115,7 @@ function ProjectCard({
           <span
             key={t}
             className="text-xs px-2 py-0.5 rounded font-medium"
-            style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.15)' }}
+            style={{ background: 'rgba(17,22,59,0.9)', backdropFilter: 'blur(8px)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.55)', boxShadow: '0 2px 8px rgba(0,0,0,0.3)' }}
           >
             {t}
           </span>
