@@ -43,15 +43,15 @@ function TiltCard({ maxTilt = 15, src, alt, caption }: TiltCardProps) {
   }
 
   return (
-    <div className="w-full max-w-[360px] aspect-[4/3]" style={{ perspective: 1000 }}>
+    <div className="w-full max-w-[420px] aspect-square" style={{ perspective: 1000 }}>
       <motion.div
         ref={cardRef}
         onPointerMove={handlePointerMove}
         onPointerLeave={resetTilt}
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-        className="relative w-full h-full rounded-lg overflow-hidden border border-border shadow-xl shadow-sky-900/15"
+        className="relative w-full h-full rounded-2xl overflow-hidden border border-border bg-[#050505] shadow-xl shadow-sky-900/15"
       >
-        <Image src={src} alt={alt} fill className="object-cover object-top" priority />
+        <Image src={src} alt={alt} fill className="object-contain object-center" priority />
         <div className="absolute inset-0 bg-gradient-to-t from-[#11163b]/90 via-[#11163b]/10 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 px-4 py-4 text-white" style={{ transform: 'translateZ(24px)' }}>
           {caption}
@@ -112,7 +112,7 @@ export function Hero() {
         {/* background meteor */}
         <Meteors number={20} />
 
-        <div className="relative z-10 max-w-6xl mx-auto w-full grid gap-16 lg:grid-cols-[1fr_360px] lg:items-center py-20">
+        <div className="relative z-10 max-w-6xl mx-auto w-full grid gap-16 lg:grid-cols-[1fr_420px] lg:items-center py-20">
 
           {/* Left */}
           <div>
