@@ -55,7 +55,11 @@ export function Hero() {
       <section
         id="hero"
         className="relative overflow-hidden min-h-screen flex items-center px-6 pt-14"
-        style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.5s ease' }}
+        style={{
+          opacity: visible ? 1 : 0,
+          transition: 'opacity 0.5s ease',
+          background: 'radial-gradient(ellipse at 78% 38%, hsl(198 100% 96%) 0%, transparent 42%)',
+        }}
       >
         {/* background meteor */}
         <Meteors number={20} />

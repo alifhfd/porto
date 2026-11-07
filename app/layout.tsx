@@ -1,20 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Bebas_Neue, JetBrains_Mono } from "next/font/google";
+import { Montserrat, Source_Sans_3, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ClientBody from "./ClientBody";
 
-/* Bebas Neue  → judul sinematik (kondensat, huruf besar, rasa "title card")
-   Archivo     → teks isi, grotesque netral yang dekat dengan Netflix Sans
-   JetBrains   → angka & metrik, memperkuat nuansa data analyst          */
-const bebas = Bebas_Neue({
-  variable: "--font-display",
+const montserrat = Montserrat({
+  variable: "--font-heading",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
-const archivo = Archivo({
-  variable: "--font-sans",
+const sourceSans = Source_Sans_3({
+  variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -80,8 +77,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  colorScheme: "dark",
-  themeColor: "#141414",
+  colorScheme: "light",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -91,7 +88,7 @@ export default function RootLayout({
     <html
       lang="id"
       suppressHydrationWarning
-      className={`${bebas.variable} ${archivo.variable} ${jetbrains.variable}`}
+      className={`${montserrat.variable} ${sourceSans.variable} ${jetbrains.variable}`}
     >
       <body className="grain font-sans antialiased">
         <ClientBody>{children}</ClientBody>

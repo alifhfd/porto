@@ -71,7 +71,7 @@ function ProjectCard({
       <div
         className="absolute inset-y-0 left-0 w-16 pointer-events-none"
         style={{
-          background: 'linear-gradient(to right, #141414, transparent)',
+          background: 'linear-gradient(to right, #ffffff, transparent)',
           opacity: isHovered ? 0 : 1,
           transition: 'opacity 0.4s ease',
         }}
@@ -81,7 +81,7 @@ function ProjectCard({
       <div
         className="absolute inset-y-0 right-0 w-16 pointer-events-none"
         style={{
-          background: 'linear-gradient(to left, #141414, transparent)',
+          background: 'linear-gradient(to left, #ffffff, transparent)',
           opacity: isHovered ? 0 : 1,
           transition: 'opacity 0.4s ease',
         }}

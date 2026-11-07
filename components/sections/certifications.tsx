@@ -40,7 +40,7 @@ export function Certifications() {
           {c.year}
         </span>
         <h3 className="mt-4 font-black text-foreground leading-snug">{c.name}</h3>
-        <p className="mt-1 text-sm font-semibold text-[#CD5C5C]">{c.issuer}</p>
+        <p className="mt-1 text-sm font-semibold text-primary">{c.issuer}</p>
         <p className="mt-3 text-sm text-muted-foreground flex-1">{c.desc}</p>
       </div>
     ))}
