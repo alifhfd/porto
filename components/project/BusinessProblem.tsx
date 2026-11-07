@@ -52,7 +52,7 @@ export default function BusinessProblem({ problems }: BusinessProblemProps) {
               </div>
 
               {/* Number accent */}
-              <span className="absolute top-4 right-5 text-4xl font-black text-neutral-100 dark:text-neutral-800 select-none">
+              <span className="absolute top-4 right-5 flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-sm font-bold text-primary ring-1 ring-sky-100 select-none">
                 {String(i + 1).padStart(2, "0")}
               </span>
             </motion.div>
